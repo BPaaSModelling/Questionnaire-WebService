@@ -1,0 +1,141 @@
+##################################################
+# Data Security Domain#
+##################################################
+
+#http://ikm-group.ch/archiMEO/questiondata#What_is_you_favorite_restore_time_level
+#Emanuele to fill
+
+#http://ikm-group.ch/archiMEO/questiondata#What_is_your_favorite_backup_frequency_period
+[CONSTRUCT {
+	questiondata:tempCloudService bpaas:cloudServiceHasBackupFrequency ?answer .
+} WHERE {
+	questiondata:What_is_your_favorite_backup_frequency_period questionnaire:questionIsAnsweredByAnswer ?answer .
+}]
+
+#http://ikm-group.ch/archiMEO/questiondata#What_is_your_favorite_backup_retention_time_period
+[CONSTRUCT {
+	questiondata:tempCloudService bpaas:cloudServiceHasBackupRetentionTime ?answer .
+} WHERE {
+	questiondata:What_is_your_favorite_backup_retention_time_period questionnaire:questionIsAnsweredByAnswer ?answer .
+}]
+
+#http://ikm-group.ch/archiMEO/questiondata#What_is_your_favorite_data_location
+[CONSTRUCT {
+	questiondata:tempCloudService bpaas:cloudServiceHasProcessedDataLocation ?location .
+} WHERE {
+	questiondata:What_is_your_favorite_data_location questionnaire:questionIsAnsweredByAnswer ?location .
+}]
+
+#http://ikm-group.ch/archiMEO/questiondata#What_is_your_prefered_data_encryption_level
+#Emanuele to fill
+
+
+##################################################
+# Functional Domain#
+##################################################
+
+#http://ikm-group.ch/archiMEO/questiondata#Which_APQC_category_does_reflect_the_functional_requirement_you_want_to_express
+[CONSTRUCT {
+	questiondata:tempCloudService bpaas:cloudServiceHasAPQC ?apqc .
+} WHERE {
+	questiondata:Which_APQC_category_does_reflect_the_functional_requirement_you_want_to_express questionnaire:questionIsAnsweredByAnswer ?apqc .
+}]
+
+#http://ikm-group.ch/archiMEO/questiondata#Which_Action_does_reflect_the_functional_requirement_you_want_to_express
+[CONSTRUCT {
+	questiondata:tempCloudService bpaas:cloudServiceHasAction ?action .
+} WHERE {
+	questiondata:Which_Action_does_reflect_the_functional_requirement_you_want_to_express questionnaire:questionIsAnsweredByAnswer ?action .
+}]
+
+#http://ikm-group.ch/archiMEO/questiondata#Which_Object_does_reflect_the_functional_requirement_you_want_to_express
+[CONSTRUCT {
+	questiondata:tempCloudService bpaas:cloudServiceHasObject ?object .
+} WHERE {
+	questiondata:Which_Object_does_reflect_the_functional_requirement_you_want_to_express questionnaire:questionIsAnsweredByAnswer ?object .
+}]
+
+
+##################################################
+# Payment Domain#
+##################################################
+
+#http://ikm-group.ch/archiMEO/questiondata#Select_your_preferred_payment_plan
+[CONSTRUCT {
+	questiondata:tempCloudService bpaas:cloudServiceHasPaymentPlan ?value .
+} WHERE {
+	questiondata:Select_your_preferred_payment_plan questionnaire:questionIsAnsweredByAnswer ?value .
+}]
+
+##################################################
+# Performance Domain#
+##################################################
+#http://ikm-group.ch/archiMEO/questiondata#How_many_simultaneous_users_do_you_prefer
+[CONSTRUCT {
+	questiondata:tempCloudService bpaas:cloudServiceHasSimultaneousUsers ?value .
+	bpaas:cloudServiceHasSimultaneousUsers questionnaire:propertyHasComparisonOperation ?operation .
+} WHERE {
+	questiondata:How_many_simultaneous_users_do_you_prefer questionnaire:questionIsAnsweredByValue ?value .
+	questiondata:How_many_simultaneous_users_do_you_prefer questionnaire:questionHasComparisonOperation ?operation .	
+}]
+
+#http://ikm-group.ch/archiMEO/questiondata#How_many_times_should_the_process_be_executed
+[CONSTRUCT {
+	questiondata:tempCloudService bpaas:cloudServiceHasExecutionCapacity ?value .
+	bpaas:cloudServiceHasExecutionCapacity questionnaire:propertyHasComparisonOperation ?operation .
+} WHERE {
+	questiondata:How_many_times_should_the_process_be_executed questionnaire:questionIsAnsweredByValue ?value .
+	questiondata:How_many_times_should_the_process_be_executed questionnaire:questionHasComparisonOperation ?operation .
+}]
+
+#http://ikm-group.ch/archiMEO/questiondata#Should_the_process_be_executed_on_a_daily_weekly_monthly_or_yearly_basis
+#Emanuele to fill
+
+
+#http://ikm-group.ch/archiMEO/questiondata#What_is_your_favorite_response_time_level
+#Emanuele to fill
+
+#http://ikm-group.ch/archiMEO/questiondata#What_is_your_preferred_monthly_downtime_in_minutes
+[CONSTRUCT {
+	questiondata:tempCloudService bpaas:cloudServiceHasDowntimeInPercent ?downtime .
+	bpaas:cloudServiceHasDowntimeInPercent questionnaire:propertyHasComparisonOperation ?operation .
+} WHERE {
+	questiondata:What_is_your_preferred_monthly_downtime_in_minutes questionnaire:questionIsAnsweredByValue ?value .
+	questiondata:What_is_your_preferred_monthly_downtime_in_minutes questionnaire:questionHasComparisonOperation ?operation .	
+	BIND (100-(((365*24*60)/12-?value)/(365*24*60/12)*100) AS ?downtime) .
+}]
+
+#http://ikm-group.ch/archiMEO/questiondata#What_would_you_like_to_upload
+#Emanuele to fill
+
+
+##################################################
+# Service Support Domain #
+##################################################
+
+#http://ikm-group.ch/archiMEO/questiondata#What_is_your_favorite_support_coverage
+[CONSTRUCT {
+	questiondata:tempCloudService bpaas:cloudServiceHasServiceSupport ?value .
+} WHERE {
+	questiondata:What_is_your_favorite_support_coverage questionnaire:questionIsAnsweredByAnswer ?value .
+}]
+
+##################################################
+# Target Market Domain #
+##################################################
+#http://ikm-group.ch/archiMEO/questiondata#Select_your_favorite_target_market
+[CONSTRUCT {
+	questiondata:tempCloudService bpaas:cloudServiceHasTargetMarket ?value .
+} WHERE {
+	questiondata:Select_your_favorite_target_market questionnaire:questionIsAnsweredByAnswer ?value .
+}]
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,18 @@
+{
+    "lastQuestionID": 0,
+    "completed": false,
+    "questionItemList": [
+        {
+            "questionLabel": "Which Object does reflect the functional requirement you want to express?",
+            "questionURI": "<http://ikm-group.ch/archiMEO/questiondata#Which_Object_does_reflect_the_functional_requirement_you_want_to_express>",
+            "answerList": [],
+            "answerType": "http://ikm-group.ch/archiMEO/questionnaire#DrilldownSelection",
+            "givenAnswerList": [
+                "http://ikm-group.ch/archimeo/fbpdo#Group"
+            ],
+            "questionID": 0,
+            "drilldownNamespace": "http://ikm-group.ch/archimeo/fbpdo#Object"
+        }
+    ],
+    "completedQuestionDomainList": []
+}

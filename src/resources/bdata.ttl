@@ -1,0 +1,274 @@
+# baseURI: http://ikm-group.ch/archiMEO/bdata
+# imports: http://ikm-group.ch/archimeo/bpaas
+# prefix: bdata
+
+@prefix apqc: <http://ikm-group.ch/archimeo/apqc#> .
+@prefix bdata: <http://ikm-group.ch/archiMEO/bdata#> .
+@prefix bpaas: <http://ikm-group.ch/archimeo/bpaas#> .
+@prefix fbpdo: <http://ikm-group.ch/archimeo/fbpdo#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix top: <http://ikm-group.ch/archiMEO/top#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://ikm-group.ch/archiMEO/bdata>
+  rdf:type owl:Ontology ;
+  owl:imports <http://ikm-group.ch/archimeo/bpaas> ;
+  owl:versionInfo "Created with TopBraid Composer" ;
+.
+bdata:Gmail
+  rdf:type bpaas:CloudService ;
+  bpaas:cloudServiceHasAPQC <http://ikm-group.ch/archimeo/apqc#9_2_2_3_Transmit_billing_data_to_customers_10796> ;
+  bpaas:cloudServiceHasAction fbpdo:Send ;
+  bpaas:cloudServiceHasObject fbpdo:Invoice ;
+  bpaas:cloudServiceHasAvailabilityInPercent 99.9 ;
+  bpaas:cloudServiceHasBackupFrequency bpaas:monthly ;
+  bpaas:cloudServiceHasBackupRestoreInGBPerHour 1 ;
+  bpaas:cloudServiceHasBackupRetentionTime bpaas:up_to_1_month ;
+  bpaas:cloudServiceHasDataStorageInGB 5 ;
+  bpaas:cloudServiceHasDescription "https://www.gmail.com" ;
+  bpaas:cloudServiceHasEncryptionType bpaas:Sha256 ;
+  bpaas:cloudServiceHasPaymentPlan bpaas:FreeOfCharge ;
+  bpaas:cloudServiceHasPaymentPlan bpaas:MonthlyFee ;
+  bpaas:cloudServiceHasProcessedDataLocation bpaas:USA ;
+  bpaas:cloudServiceHasResponseTime_in_ms 1 ;
+  bpaas:cloudServiceHasServiceSupport bpaas:Twenty4Seven ;
+  bpaas:cloudServiceHasServiceSupportResponsiveness bpaas:at_most_1_working_day ;
+  bpaas:cloudServiceHasSimultaneousUsers 100 ;
+  bpaas:cloudServiceHasStoredDataLocation bpaas:USA ;
+  bpaas:cloudServiceHasTargetMarket bpaas:Businesses ;
+  bpaas:cloudServiceHasTargetMarket bpaas:GrowingTeams ;
+  bpaas:cloudServiceHasTargetMarket bpaas:Individuals ;
+  bpaas:cloudServiceHasTargetMarket bpaas:SchoolsAndUniversities ;
+  bpaas:cloudServiceHasTargetMarket bpaas:SmallTeams ;
+  rdfs:label "Gmail - e-mail system" ;
+.
+bdata:MailJet
+  rdf:type bpaas:CloudService ;
+  bpaas:cloudServiceHasAPQC <http://ikm-group.ch/archimeo/apqc#9_2_2_3_Transmit_billing_data_to_customers_10796> ;
+  bpaas:cloudServiceHasAction fbpdo:Send ;
+  bpaas:cloudServiceHasObject fbpdo:Invoice ;
+  bpaas:cloudServiceHasAvailabilityInPercent 99.999 ;
+  bpaas:cloudServiceHasBackupFrequency bpaas:daily ;
+  bpaas:cloudServiceHasBackupRestoreInGBPerHour 1 ;
+  bpaas:cloudServiceHasBackupRetentionTime bpaas:up_to_1_month ;
+  bpaas:cloudServiceHasDataStorageInGB 1 ;
+  bpaas:cloudServiceHasDescription "https://eu.mailjet.com/#" ;
+  bpaas:cloudServiceHasEncryptionType bpaas:Sha256 ;
+  bpaas:cloudServiceHasPaymentPlan bpaas:MonthlyFee ;
+  bpaas:cloudServiceHasProcessedDataLocation bpaas:French ;
+  bpaas:cloudServiceHasResponseTime_in_ms 1 ;
+  bpaas:cloudServiceHasServiceSupport bpaas:Twenty4Seven ;
+  bpaas:cloudServiceHasServiceSupportResponsiveness bpaas:at_most_1_working_day ;
+  bpaas:cloudServiceHasSimultaneousUsers 100 ;
+  bpaas:cloudServiceHasStoredDataLocation bpaas:French ;
+  bpaas:cloudServiceHasTargetMarket bpaas:Businesses ;
+  rdfs:label "MailJet" ;
+.
+bdata:Mathema_Document_Generator
+  rdf:type bpaas:CloudService ;
+  bpaas:cloudServiceHasAPQC <http://ikm-group.ch/archimeo/apqc#9_2_2_2_Generate_customer_billing_data_10795> ;
+  bpaas:cloudServiceHasAccessLogAvailabilityInMonths 1 ;
+  bpaas:cloudServiceHasAccessLogRetentionPeriodInMonths 1 ;
+  bpaas:cloudServiceHasAccessLogRetentionPolicies bpaas:Archive_the_log_when_full ;
+  bpaas:cloudServiceHasAuditLogAvailabilityInMonth 1 ;
+  bpaas:cloudServiceHasAuditLogRetentionPeriodInMonths 1 ;
+  bpaas:cloudServiceHasAuditLogRetentionPolicies bpaas:Archive_the_log_when_full ;
+  bpaas:cloudServiceHasAvailabilityInPercent "99"^^xsd:decimal ;
+  bpaas:cloudServiceHasBackupFrequency bpaas:monthly ;
+  bpaas:cloudServiceHasBackupRestoreInGBPerHour 5 ;
+  bpaas:cloudServiceHasBackupRetentionTime bpaas:up_to_2_month ;
+  bpaas:cloudServiceHasDataStorageInGB 1 ;
+  bpaas:cloudServiceHasEncryptionType bpaas:Sha1 ;
+  bpaas:cloudServiceHasExecutionCapacity 20 ;
+  bpaas:cloudServiceHasPaymentPlan bpaas:MonthlyFee ;
+  bpaas:cloudServiceHasPaymentPlan bpaas:TryFreeFirst ;
+  bpaas:cloudServiceHasProcessedDataLocation bpaas:USA ;
+  bpaas:cloudServiceHasResponseTime_in_ms 2 ;
+  bpaas:cloudServiceHasServiceSupport bpaas:Mon-Fri ;
+  bpaas:cloudServiceHasServiceSupportResponsiveness bpaas:at_most_4_hours ;
+  bpaas:cloudServiceHasSimultaneousUsers 200 ;
+  bpaas:cloudServiceHasStoredDataLocation bpaas:Italy ;
+  bpaas:cloudServiceHasTargetMarket bpaas:Businesses ;
+  bpaas:cloudServiceHasTargetMarket bpaas:Individuals ;
+  bpaas:cloudServiceHasTargetMarket bpaas:SchoolsAndUniversities ;
+  bpaas:cloudServiceHasTargetMarket bpaas:SmallTeams ;
+  rdfs:label "Mathema Document Generator" ;
+.
+bdata:Ninja_Invoicing_System
+  rdf:type bpaas:CloudService ;
+  bpaas:cloudServiceHasAPQC <http://ikm-group.ch/archimeo/apqc#9_2_2_2_Generate_customer_billing_data_10795> ;
+  bpaas:cloudServiceHasAPQC <http://ikm-group.ch/archimeo/apqc#9_2_2_3_Transmit_billing_data_to_customers_10796> ;
+  bpaas:cloudServiceHasAccessLogAvailabilityInMonths 2 ;
+  bpaas:cloudServiceHasAccessLogRetentionPeriodInMonths 2 ;
+  bpaas:cloudServiceHasAccessLogRetentionPolicies bpaas:Overwrite_events_as_needed ;
+  bpaas:cloudServiceHasAction fbpdo:Send ;
+  bpaas:cloudServiceHasAuditLogAvailabilityInMonth 2 ;
+  bpaas:cloudServiceHasAuditLogRetentionPeriodInMonths 2 ;
+  bpaas:cloudServiceHasAuditLogRetentionPolicies bpaas:Overwrite_events_as_needed ;
+  bpaas:cloudServiceHasAvailabilityInPercent 99.999 ;
+  bpaas:cloudServiceHasBackupFrequency bpaas:daily ;
+  bpaas:cloudServiceHasBackupRestoreInGBPerHour 50 ;
+  bpaas:cloudServiceHasBackupRetentionTime bpaas:up_to_7_days ;
+  bpaas:cloudServiceHasDataStorageInGB 5 ;
+  bpaas:cloudServiceHasDescription "https://www.invoiceninja.com/" ;
+  bpaas:cloudServiceHasEncryptionType bpaas:Sha256 ;
+  bpaas:cloudServiceHasExecutionCapacity 20 ;
+  bpaas:cloudServiceHasObject fbpdo:Invoice ;
+  bpaas:cloudServiceHasPaymentPlan bpaas:FreeOfCharge ;
+  bpaas:cloudServiceHasPaymentPlan bpaas:MonthlyFee ;
+  bpaas:cloudServiceHasPaymentPlan bpaas:PrepaidAnnualPlan ;
+  bpaas:cloudServiceHasProcessedDataLocation bpaas:Israel ;
+  bpaas:cloudServiceHasResponseTime_in_ms 5 ;
+  bpaas:cloudServiceHasServiceSupport bpaas:Twenty4Seven ;
+  bpaas:cloudServiceHasServiceSupportResponsiveness bpaas:at_most_1_working_day ;
+  bpaas:cloudServiceHasSimultaneousUsers 500 ;
+  bpaas:cloudServiceHasTargetMarket bpaas:Businesses ;
+  rdfs:label "Ninja Invoicing System" ;
+.
+bdata:Ninja_Invoicing_System_copy
+  rdf:type bpaas:CloudService ;
+  bpaas:cloudServiceHasAPQC <http://ikm-group.ch/archimeo/apqc#9_0_Manage_Financial_Resources_17058> ;
+  bpaas:cloudServiceHasAccessLogAvailabilityInMonths 2 ;
+  bpaas:cloudServiceHasAccessLogRetentionPeriodInMonths 2 ;
+  bpaas:cloudServiceHasAccessLogRetentionPolicies bpaas:Overwrite_events_as_needed ;
+  bpaas:cloudServiceHasAction fbpdo:Send ;
+  bpaas:cloudServiceHasAuditLogAvailabilityInMonth 2 ;
+  bpaas:cloudServiceHasAuditLogRetentionPeriodInMonths 2 ;
+  bpaas:cloudServiceHasAuditLogRetentionPolicies bpaas:Overwrite_events_as_needed ;
+  bpaas:cloudServiceHasAvailabilityInPercent 99.999 ;
+  bpaas:cloudServiceHasBackupFrequency bpaas:daily ;
+  bpaas:cloudServiceHasBackupRestoreInGBPerHour 50 ;
+  bpaas:cloudServiceHasBackupRetentionTime bpaas:up_to_7_days ;
+  bpaas:cloudServiceHasDataStorageInGB 5 ;
+  bpaas:cloudServiceHasDescription "https://www.invoiceninja.com/" ;
+  bpaas:cloudServiceHasEncryptionType bpaas:Sha256 ;
+  bpaas:cloudServiceHasExecutionCapacity 20 ;
+  bpaas:cloudServiceHasObject fbpdo:Invoice ;
+  bpaas:cloudServiceHasPaymentPlan bpaas:FreeOfCharge ;
+  bpaas:cloudServiceHasPaymentPlan bpaas:MonthlyFee ;
+  bpaas:cloudServiceHasPaymentPlan bpaas:PrepaidAnnualPlan ;
+  bpaas:cloudServiceHasProcessedDataLocation bpaas:Israel ;
+  bpaas:cloudServiceHasResponseTime_in_ms 5 ;
+  bpaas:cloudServiceHasServiceSupport bpaas:Twenty4Seven ;
+  bpaas:cloudServiceHasServiceSupportResponsiveness bpaas:at_most_1_working_day ;
+  bpaas:cloudServiceHasSimultaneousUsers 500 ;
+  bpaas:cloudServiceHasTargetMarket bpaas:Businesses ;
+  rdfs:label "Another Invoicing System" ;
+.
+bdata:Open_Source_Billing
+  rdf:type bpaas:CloudService ;
+  bpaas:cloudServiceHasAPQC <http://ikm-group.ch/archimeo/apqc#9_2_2_2_Generate_customer_billing_data_10795> ;
+  bpaas:cloudServiceHasAccessLogAvailabilityInMonths 1 ;
+  bpaas:cloudServiceHasAccessLogRetentionPeriodInMonths 1 ;
+  bpaas:cloudServiceHasAccessLogRetentionPolicies bpaas:Archive_the_log_when_full ;
+  bpaas:cloudServiceHasAuditLogAvailabilityInMonth 1 ;
+  bpaas:cloudServiceHasAuditLogRetentionPeriodInMonths 1 ;
+  bpaas:cloudServiceHasAuditLogRetentionPolicies bpaas:Archive_the_log_when_full ;
+  bpaas:cloudServiceHasAvailabilityInPercent "99"^^xsd:decimal ;
+  bpaas:cloudServiceHasBackupFrequency bpaas:monthly ;
+  bpaas:cloudServiceHasBackupRestoreInGBPerHour 5 ;
+  bpaas:cloudServiceHasBackupRetentionTime bpaas:up_to_2_month ;
+  bpaas:cloudServiceHasDataStorageInGB 1 ;
+  bpaas:cloudServiceHasDescription "https://www.odoo.com/page/billing?utm_source=adwords&utm_medium=cpc&utm_campaign=en-adwordscpc-billing&gclid=Cj0KEQiA5bvEBRCM6vypnc7QgMkBEiQAUZftQGIOKS2kFdxrxzcGC2Cx-D8t-fkHs2KPYHGVNPe6sGIaAjrm8P8HAQ" ;
+  bpaas:cloudServiceHasEncryptionType bpaas:Sha1 ;
+  bpaas:cloudServiceHasExecutionCapacity 20 ;
+  bpaas:cloudServiceHasPaymentPlan bpaas:MonthlyFee ;
+  bpaas:cloudServiceHasPaymentPlan bpaas:TryFreeFirst ;
+  bpaas:cloudServiceHasProcessedDataLocation bpaas:USA ;
+  bpaas:cloudServiceHasResponseTime_in_ms 2 ;
+  bpaas:cloudServiceHasServiceSupport bpaas:Mon-Fri ;
+  bpaas:cloudServiceHasServiceSupportResponsiveness bpaas:at_most_4_hours ;
+  bpaas:cloudServiceHasSimultaneousUsers 200 ;
+  bpaas:cloudServiceHasStoredDataLocation bpaas:USA ;
+  bpaas:cloudServiceHasTargetMarket bpaas:Businesses ;
+  bpaas:cloudServiceHasTargetMarket bpaas:Individuals ;
+  bpaas:cloudServiceHasTargetMarket bpaas:SchoolsAndUniversities ;
+  bpaas:cloudServiceHasTargetMarket bpaas:SmallTeams ;
+  rdfs:label "Open Source Billing - Invoicing System" ;
+.
+bdata:Simple_Invoices
+  rdf:type bpaas:CloudService ;
+  bpaas:cloudServiceHasAPQC <http://ikm-group.ch/archimeo/apqc#9_2_2_2_Generate_customer_billing_data_10795> ;
+  bpaas:cloudServiceHasAccessLogAvailabilityInMonths 1 ;
+  bpaas:cloudServiceHasAccessLogRetentionPeriodInMonths 1 ;
+  bpaas:cloudServiceHasAccessLogRetentionPolicies bpaas:Archive_the_log_when_full ;
+  bpaas:cloudServiceHasAuditLogAvailabilityInMonth 1 ;
+  bpaas:cloudServiceHasAuditLogRetentionPeriodInMonths 1 ;
+  bpaas:cloudServiceHasAuditLogRetentionPolicies bpaas:Archive_the_log_when_full ;
+  bpaas:cloudServiceHasAvailabilityInPercent 99.7 ;
+  bpaas:cloudServiceHasBackupFrequency bpaas:monthly ;
+  bpaas:cloudServiceHasBackupRestoreInGBPerHour 50 ;
+  bpaas:cloudServiceHasBackupRetentionTime bpaas:up_to_2_month ;
+  bpaas:cloudServiceHasDataStorageInGB 10 ;
+  bpaas:cloudServiceHasDescription "http://www.simpleinvoices.org/" ;
+  bpaas:cloudServiceHasEncryptionType bpaas:Sha1 ;
+  bpaas:cloudServiceHasExecutionCapacity 20 ;
+  bpaas:cloudServiceHasPaymentPlan bpaas:MonthlyFee ;
+  bpaas:cloudServiceHasPaymentPlan bpaas:TryFreeFirst ;
+  bpaas:cloudServiceHasProcessedDataLocation bpaas:Germany ;
+  bpaas:cloudServiceHasResponseTime_in_ms 1 ;
+  bpaas:cloudServiceHasServiceSupport bpaas:Mon-Fri ;
+  bpaas:cloudServiceHasServiceSupportResponsiveness bpaas:at_most_4_hours ;
+  bpaas:cloudServiceHasSimultaneousUsers 30 ;
+  bpaas:cloudServiceHasStoredDataLocation bpaas:Germany ;
+  bpaas:cloudServiceHasTargetMarket bpaas:Businesses ;
+  rdfs:label "Simple Invoices - Invoicing System" ;
+.
+bdata:YMENS_CRM
+  rdf:type bpaas:CloudService ;
+  bpaas:cloudServiceHasAPQC <http://ikm-group.ch/archimeo/apqc#3_5_2_4_Manage_customer_relationships_11174> ;
+  bpaas:cloudServiceHasAccessLogAvailabilityInMonths 6 ;
+  bpaas:cloudServiceHasAccessLogRetentionPeriodInMonths 2 ;
+  bpaas:cloudServiceHasAccessLogRetentionPolicies bpaas:Overwrite_events_as_needed ;
+  bpaas:cloudServiceHasAuditLogAvailabilityInMonth 2 ;
+  bpaas:cloudServiceHasAuditLogRetentionPeriodInMonths 6 ;
+  bpaas:cloudServiceHasAuditLogRetentionPolicies bpaas:Overwrite_events_as_needed ;
+  bpaas:cloudServiceHasAvailabilityInPercent 99.99999 ;
+  bpaas:cloudServiceHasBackupFrequency bpaas:daily ;
+  bpaas:cloudServiceHasBackupRestoreInGBPerHour 50 ;
+  bpaas:cloudServiceHasBackupRetentionTime bpaas:up_to_1_month ;
+  bpaas:cloudServiceHasDataStorageInGB 10 ;
+  bpaas:cloudServiceHasEncryptionType bpaas:Sha256 ;
+  bpaas:cloudServiceHasExecutionCapacity "111"^^xsd:decimal ;
+  bpaas:cloudServiceHasPaymentPlan bpaas:PrepaidAnnualPlan ;
+  bpaas:cloudServiceHasProcessedDataLocation bpaas:Romania ;
+  bpaas:cloudServiceHasResponseTime_in_ms 1 ;
+  bpaas:cloudServiceHasServiceSupport bpaas:Twenty4Seven ;
+  bpaas:cloudServiceHasServiceSupportResponsiveness bpaas:at_most_2_hours ;
+  bpaas:cloudServiceHasSimultaneousUsers 1000 ;
+  bpaas:cloudServiceHasStoredDataLocation bpaas:Romania ;
+  bpaas:cloudServiceHasTargetMarket bpaas:Businesses ;
+  bpaas:cloudServiceHasTargetMarket bpaas:SchoolsAndUniversities ;
+  rdfs:label "YMENS CRM" ;
+.
+bdata:Zoho_CRM
+  rdf:type bpaas:CloudService ;
+  bpaas:cloudServiceHasAPQC <http://ikm-group.ch/archimeo/apqc#3_5_2_4_Manage_customer_relationships_11174> ;
+  bpaas:cloudServiceHasAccessLogAvailabilityInMonths 1 ;
+  bpaas:cloudServiceHasAccessLogRetentionPeriodInMonths 2 ;
+  bpaas:cloudServiceHasAccessLogRetentionPolicies bpaas:Overwrite_events_as_needed ;
+  bpaas:cloudServiceHasAuditLogAvailabilityInMonth 1 ;
+  bpaas:cloudServiceHasAuditLogRetentionPeriodInMonths 2 ;
+  bpaas:cloudServiceHasAuditLogRetentionPolicies bpaas:Overwrite_events_as_needed ;
+  bpaas:cloudServiceHasAvailabilityInPercent 99.8 ;
+  bpaas:cloudServiceHasBackupFrequency bpaas:monthly ;
+  bpaas:cloudServiceHasBackupRestoreInGBPerHour 100 ;
+  bpaas:cloudServiceHasBackupRetentionTime bpaas:up_to_1_month ;
+  bpaas:cloudServiceHasDataStorageInGB 5 ;
+  bpaas:cloudServiceHasDescription "https://www.zoho.com/crm/?src=zoho" ;
+  bpaas:cloudServiceHasEncryptionType bpaas:Sha1 ;
+  bpaas:cloudServiceHasExecutionCapacity 30 ;
+  bpaas:cloudServiceHasPaymentPlan bpaas:MonthlyFee ;
+  bpaas:cloudServiceHasPaymentPlan bpaas:PrepaidAnnualPlan ;
+  bpaas:cloudServiceHasPaymentPlan bpaas:TryFreeFirst ;
+  bpaas:cloudServiceHasProcessedDataLocation bpaas:USA ;
+  bpaas:cloudServiceHasResponseTime_in_ms 5 ;
+  bpaas:cloudServiceHasServiceSupport bpaas:Mon-Fri ;
+  bpaas:cloudServiceHasServiceSupportResponsiveness bpaas:at_most_2_hours ;
+  bpaas:cloudServiceHasSimultaneousUsers 200 ;
+  bpaas:cloudServiceHasStoredDataLocation bpaas:USA ;
+  bpaas:cloudServiceHasTargetMarket bpaas:Businesses ;
+  rdfs:label "Zoho CRM" ;
+.

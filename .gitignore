@@ -1,0 +1,14 @@
+/target/
+/.DS_Store
+/.classpath
+/.project
+/01_after_reasoning.txt
+/02_tempmodel.txt
+/03_tempmodel.txt
+/04_tempmodel.txt
+/05_tempmodel.txt
+/apqc.bug.txt
+/02_tempmodel_after_setup.txt
+/03_tempmodel_after_questTranslation.txt
+/05_tempmodel_after_filling_tempCS.txt
+/main_model_export.txt

@@ -1,0 +1,174 @@
+##################################################
+
+
+##################################################
+# APQC Reasoning
+##################################################
+[CONSTRUCT {
+	?cs rdf:type ?apqcSub .
+} WHERE {
+	?cs bpaas:cloudServiceHasAPQC ?apqc.
+	?cs rdf:type bpaas:CloudService .
+	?apqc rdfs:subClassOf* apqc:AmericanProductivityAndQualityCenter .
+	?apqcSub rdfs:subClassOf* ?apqc .
+}]
+
+##################################################
+# Action Reasoning
+##################################################
+[CONSTRUCT {
+	?cs rdf:type ?actionSub .
+} WHERE {
+	?cs bpaas:cloudServiceHasAction ?action.
+	?cs rdf:type bpaas:CloudService .
+	?action rdfs:subClassOf* fbpdo:Action .
+	?actionSub rdfs:subClassOf* ?action .
+}]
+
+##################################################
+# Object Reasoning
+##################################################
+[CONSTRUCT {
+	?cs rdf:type ?objectSub .
+} WHERE {
+	?cs bpaas:cloudServiceHasObject ?object.
+	?cs rdf:type bpaas:CloudService .
+	?action rdfs:subClassOf* fbpdo:Object .
+	?objectSub rdfs:subClassOf* ?object .
+}]
+##################################################
+# Location Reasoning
+##################################################
+#top down
+[CONSTRUCT {
+	?cs bpaas:cloudServiceHasProcessedDataLocation ?objectSub .
+} WHERE {
+	?cs bpaas:cloudServiceHasProcessedDataLocation ?object.
+	?cs rdf:type bpaas:CloudService .
+	?action rdfs:subClassOf* bpaas:Continent .
+	?objectSub rdfs:subClassOf* ?object .
+}]
+
+#bottom up
+[CONSTRUCT {
+	?cs bpaas:cloudServiceHasProcessedDataLocation ?parent .
+} WHERE {
+	?cs bpaas:cloudServiceHasProcessedDataLocation ?loc.
+	?cs rdf:type bpaas:CloudService .
+	?loc rdfs:subClassOf* ?parent .
+	?parent rdfs:subClassOf* bpaas:Continent .
+	FILTER(?parent != bpaas:Continent)
+}]
+
+
+##################################################
+# transforming availability % in downtime %
+##################################################
+[CONSTRUCT {
+	?cs bpaas:cloudServiceHasDowntimeInPercent ?downtimeInPercent .
+} WHERE {
+	?cs rdf:type bpaas:CloudService .
+	?cs bpaas:cloudServiceHasAvailabilityInPercent ?availability .
+	BIND (100-?availability AS ?downtimeInPercent) 
+}]
+
+##################################################
+# bpaas:cloudServiceHasBackupFrequency
+##################################################
+
+[CONSTRUCT {
+	?cservice bpaas:cloudServiceHasBackupFrequency bpaas:monthly .
+	?cservice bpaas:cloudServiceHasBackupFrequency bpaas:weekly .
+	?cservice bpaas:cloudServiceHasBackupFrequency bpaas:yearly .
+}
+WHERE{
+	?cservice rdf:type bpaas:CloudService .
+	?cservice bpaas:cloudServiceHasBackupFrequency bpaas:daily .
+}]
+
+[CONSTRUCT {
+	?cservice bpaas:cloudServiceHasBackupFrequency bpaas:weekly .
+	?cservice bpaas:cloudServiceHasBackupFrequency bpaas:yearly .
+}
+WHERE{
+	?cservice rdf:type bpaas:CloudService .
+	?cservice bpaas:cloudServiceHasBackupFrequency bpaas:monthly .
+}]
+
+[CONSTRUCT {
+	?cservice bpaas:cloudServiceHasBackupFrequency bpaas:yearly .
+}
+WHERE{
+	?cservice rdf:type bpaas:CloudService .
+	?cservice bpaas:cloudServiceHasBackupFrequency bpaas:weekly .
+}]
+
+
+##################################################
+# bpaas:cloudServiceHasBackupRetentionTime
+##################################################
+
+[CONSTRUCT {
+	?cservice bpaas:cloudServiceHasBackupRetentionTime bpaas:up_to_1_year .
+	?cservice bpaas:cloudServiceHasBackupRetentionTime bpaas:up_to_half_year .
+	?cservice bpaas:cloudServiceHasBackupRetentionTime bpaas:up_to_2_month .
+	?cservice bpaas:cloudServiceHasBackupRetentionTime bpaas:up_to_1_month .
+	?cservice bpaas:cloudServiceHasBackupRetentionTime bpaas:up_to_2_weeks .
+	?cservice bpaas:cloudServiceHasBackupRetentionTime bpaas:up_to_7_days .
+}
+WHERE{
+	?cservice rdf:type bpaas:CloudService .
+	?cservice bpaas:cloudServiceHasBackupRetentionTime bpaas:up_to_1_day .
+}]
+
+[CONSTRUCT {
+	?cservice bpaas:cloudServiceHasBackupRetentionTime bpaas:up_to_1_year .
+	?cservice bpaas:cloudServiceHasBackupRetentionTime bpaas:up_to_half_year .
+	?cservice bpaas:cloudServiceHasBackupRetentionTime bpaas:up_to_2_month .
+	?cservice bpaas:cloudServiceHasBackupRetentionTime bpaas:up_to_1_month .
+	?cservice bpaas:cloudServiceHasBackupRetentionTime bpaas:up_to_2_weeks .
+}
+WHERE{
+	?cservice rdf:type bpaas:CloudService .
+	?cservice bpaas:cloudServiceHasBackupRetentionTime bpaas:up_to_7_days .
+}]
+
+[CONSTRUCT {
+	?cservice bpaas:cloudServiceHasBackupRetentionTime bpaas:up_to_1_year .
+	?cservice bpaas:cloudServiceHasBackupRetentionTime bpaas:up_to_half_year .
+	?cservice bpaas:cloudServiceHasBackupRetentionTime bpaas:up_to_2_month .
+	?cservice bpaas:cloudServiceHasBackupRetentionTime bpaas:up_to_1_month .
+}
+WHERE{
+	?cservice rdf:type bpaas:CloudService .
+	?cservice bpaas:cloudServiceHasBackupRetentionTime bpaas:up_to_2_weeks .
+}]
+
+[CONSTRUCT {
+	?cservice bpaas:cloudServiceHasBackupRetentionTime bpaas:up_to_1_year .
+	?cservice bpaas:cloudServiceHasBackupRetentionTime bpaas:up_to_half_year .
+	?cservice bpaas:cloudServiceHasBackupRetentionTime bpaas:up_to_2_month .
+}
+WHERE{
+	?cservice rdf:type bpaas:CloudService .
+	?cservice bpaas:cloudServiceHasBackupRetentionTime bpaas:up_to_1_month .
+}]
+
+[CONSTRUCT {
+	?cservice bpaas:cloudServiceHasBackupRetentionTime bpaas:up_to_1_year .
+	?cservice bpaas:cloudServiceHasBackupRetentionTime bpaas:up_to_half_year .
+}
+WHERE{
+	?cservice rdf:type bpaas:CloudService .
+	?cservice bpaas:cloudServiceHasBackupRetentionTime bpaas:up_to_2_month .
+}]
+
+[CONSTRUCT {
+	?cservice bpaas:cloudServiceHasBackupRetentionTime bpaas:up_to_1_year .
+}
+WHERE{
+	?cservice rdf:type bpaas:CloudService .
+	?cservice bpaas:cloudServiceHasBackupRetentionTime bpaas:up_to_half_year .
+}]
+
+

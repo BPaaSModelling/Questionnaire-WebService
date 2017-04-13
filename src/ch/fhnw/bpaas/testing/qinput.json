@@ -1,0 +1,597 @@
+{
+    "lastQuestionID": 21,
+    "completed": true,
+    "questionItemList": [
+        {
+            "questionLabel": "Which Object does reflect the functional requirement you want to express?",
+            "questionURI": "<http://ikm-group.ch/archiMEO/questiondata#Which_Object_does_reflect_the_functional_requirement_you_want_to_express>",
+            "answerList": [],
+            "answerType": "http://ikm-group.ch/archiMEO/questionnaire#SearchSelection",
+            "givenAnswerList": [
+                "http://ikm-group.ch/archimeo/fbpdo#Invoice"
+            ],
+            "questionID": 0,
+            "searchNamespace": "http://ikm-group.ch/archimeo/fbpdo#Object",
+            "comparisonOperationAnswers": []
+        },
+        {
+            "questionLabel": "Which Action does reflect the functional requirement you want to express?",
+            "questionURI": "<http://ikm-group.ch/archiMEO/questiondata#Which_Action_does_reflect_the_functional_requirement_you_want_to_express>",
+            "answerList": [],
+            "answerType": "http://ikm-group.ch/archiMEO/questionnaire#SearchSelection",
+            "givenAnswerList": [
+                "http://ikm-group.ch/archimeo/fbpdo#Send"
+            ],
+            "questionID": 1,
+            "searchNamespace": "http://ikm-group.ch/archimeo/fbpdo#Action",
+            "comparisonOperationAnswers": []
+        },
+        {
+            "questionLabel": "Which APQC category does reflect the functional requirement you want to express?",
+            "questionURI": "<http://ikm-group.ch/archiMEO/questiondata#Which_APQC_category_does_reflect_the_functional_requirement_you_want_to_express>",
+            "answerList": [],
+            "answerType": "http://ikm-group.ch/archiMEO/questionnaire#SearchSelection",
+            "givenAnswerList": [
+                "http://ikm-group.ch/archimeo/apqc#9_2_2_2_Generate_customer_billing_data_10795"
+            ],
+            "questionID": 2,
+            "searchNamespace": "http://ikm-group.ch/archimeo/apqc#AmericanProductivityAndQualityCenter",
+            "comparisonOperationAnswers": []
+        },
+        {
+            "questionLabel": "Select the category you would like to specify",
+            "questionURI": "<http://ikm-group.ch/archiMEO/questiondata#Select_the_category_you_would_like_to_specify>",
+            "answerList": [
+                {
+                    "answerLabel": "Target Market",
+                    "answerID": "http://ikm-group.ch/archiMEO/questionnaire#TargetMarket"
+                },
+                {
+                    "answerLabel": "Service Support",
+                    "answerID": "http://ikm-group.ch/archiMEO/questionnaire#ServiceSupport"
+                },
+                {
+                    "answerLabel": "Performance",
+                    "answerID": "http://ikm-group.ch/archiMEO/questionnaire#Performance"
+                },
+                {
+                    "answerLabel": "Payment",
+                    "answerID": "http://ikm-group.ch/archiMEO/questionnaire#Payment"
+                },
+                {
+                    "answerLabel": "Data Security",
+                    "answerID": "http://ikm-group.ch/archiMEO/questionnaire#DataSecurity"
+                }
+            ],
+            "answerType": "http://ikm-group.ch/archiMEO/questionnaire#SingleSelection",
+            "givenAnswerList": [
+                "http://ikm-group.ch/archiMEO/questionnaire#TargetMarket"
+            ],
+            "questionID": 3,
+            "comparisonOperationAnswers": []
+        },
+        {
+            "questionLabel": "Select your favorite target market",
+            "questionURI": "<http://ikm-group.ch/archiMEO/questiondata#Select_your_favorite_target_market>",
+            "answerList": [
+                {
+                    "answerLabel": "Schools and Universities",
+                    "answerID": "http://ikm-group.ch/archimeo/bpaas#SchoolsAndUniversities"
+                },
+                {
+                    "answerLabel": "No Target",
+                    "answerID": "http://ikm-group.ch/archimeo/bpaas#NoTarget"
+                },
+                {
+                    "answerLabel": "Businesses",
+                    "answerID": "http://ikm-group.ch/archimeo/bpaas#Businesses"
+                },
+                {
+                    "answerLabel": "Small Teams",
+                    "answerID": "http://ikm-group.ch/archimeo/bpaas#SmallTeams"
+                },
+                {
+                    "answerLabel": "Growing Teams",
+                    "answerID": "http://ikm-group.ch/archimeo/bpaas#GrowingTeams"
+                },
+                {
+                    "answerLabel": "Individuals",
+                    "answerID": "http://ikm-group.ch/archimeo/bpaas#Individuals"
+                }
+            ],
+            "answerType": "http://ikm-group.ch/archiMEO/questionnaire#SingleSelection",
+            "givenAnswerList": [
+                "http://ikm-group.ch/archimeo/bpaas#Businesses"
+            ],
+            "questionID": 4,
+            "comparisonOperationAnswers": []
+        },
+        {
+            "questionLabel": "Select the category you would like to specify",
+            "questionURI": "<http://ikm-group.ch/archiMEO/questiondata#Select_the_category_you_would_like_to_specify>",
+            "answerList": [
+                {
+                    "answerLabel": "Service Support",
+                    "answerID": "http://ikm-group.ch/archiMEO/questionnaire#ServiceSupport"
+                },
+                {
+                    "answerLabel": "Performance",
+                    "answerID": "http://ikm-group.ch/archiMEO/questionnaire#Performance"
+                },
+                {
+                    "answerLabel": "Payment",
+                    "answerID": "http://ikm-group.ch/archiMEO/questionnaire#Payment"
+                },
+                {
+                    "answerLabel": "Data Security",
+                    "answerID": "http://ikm-group.ch/archiMEO/questionnaire#DataSecurity"
+                }
+            ],
+            "answerType": "http://ikm-group.ch/archiMEO/questionnaire#SingleSelection",
+            "givenAnswerList": [
+                "http://ikm-group.ch/archiMEO/questionnaire#ServiceSupport"
+            ],
+            "questionID": 5,
+            "comparisonOperationAnswers": []
+        },
+        {
+            "questionLabel": "What is your favorite support coverage?",
+            "questionURI": "<http://ikm-group.ch/archiMEO/questiondata#What_is_your_favorite_support_coverage>",
+            "answerList": [
+                {
+                    "answerLabel": "Weekend",
+                    "answerID": "http://ikm-group.ch/archimeo/bpaas#Weekend"
+                },
+                {
+                    "answerLabel": "24-7",
+                    "answerID": "http://ikm-group.ch/archimeo/bpaas#Twenty4Seven"
+                },
+                {
+                    "answerLabel": "Mon-Sat",
+                    "answerID": "http://ikm-group.ch/archimeo/bpaas#Mon-Sat"
+                },
+                {
+                    "answerLabel": "Mon-Fri",
+                    "answerID": "http://ikm-group.ch/archimeo/bpaas#Mon-Fri"
+                }
+            ],
+            "answerType": "http://ikm-group.ch/archiMEO/questionnaire#SingleSelection",
+            "givenAnswerList": [
+                "http://ikm-group.ch/archimeo/bpaas#Twenty4Seven"
+            ],
+            "questionID": 6,
+            "comparisonOperationAnswers": []
+        },
+        {
+            "questionLabel": "Select the category you would like to specify",
+            "questionURI": "<http://ikm-group.ch/archiMEO/questiondata#Select_the_category_you_would_like_to_specify>",
+            "answerList": [
+                {
+                    "answerLabel": "Performance",
+                    "answerID": "http://ikm-group.ch/archiMEO/questionnaire#Performance"
+                },
+                {
+                    "answerLabel": "Payment",
+                    "answerID": "http://ikm-group.ch/archiMEO/questionnaire#Payment"
+                },
+                {
+                    "answerLabel": "Data Security",
+                    "answerID": "http://ikm-group.ch/archiMEO/questionnaire#DataSecurity"
+                }
+            ],
+            "answerType": "http://ikm-group.ch/archiMEO/questionnaire#SingleSelection",
+            "givenAnswerList": [
+                "http://ikm-group.ch/archiMEO/questionnaire#Performance"
+            ],
+            "questionID": 7,
+            "comparisonOperationAnswers": []
+        },
+        {
+            "questionLabel": "What is your preferred monthly downtime in minutes?",
+            "questionURI": "<http://ikm-group.ch/archiMEO/questiondata#What_is_your_preferred_monthly_downtime_in_minutes>",
+            "answerList": [],
+            "answerType": "http://ikm-group.ch/archiMEO/questionnaire#ValueInsert",
+            "givenAnswerList": [
+                "2"
+            ],
+            "answerDatatype": "http://www.w3.org/2001/XMLSchema#integer",
+            "questionID": 8,
+            "comparisonOperationAnswers": [
+                {
+                    "answerLabel": "Equals (=)",
+                    "answerID": "http://ikm-group.ch/archiMEO/questionnaire#Equals"
+                },
+                {
+                    "answerLabel": "less than (<)",
+                    "answerID": "http://ikm-group.ch/archiMEO/questionnaire#LessThan"
+                },
+                {
+                    "answerLabel": "not equal (!=)",
+                    "answerID": "http://ikm-group.ch/archiMEO/questionnaire#NotEqual"
+                },
+                {
+                    "answerLabel": "greater than (>)",
+                    "answerID": "http://ikm-group.ch/archiMEO/questionnaire#GreaterThan"
+                },
+                {
+                    "answerLabel": "greater equals than (>=)",
+                    "answerID": "http://ikm-group.ch/archiMEO/questionnaire#GreaterEqualsThan"
+                },
+                {
+                    "answerLabel": "less equals than (<=)",
+                    "answerID": "http://ikm-group.ch/archiMEO/questionnaire#LessEqualsThan"
+                }
+            ],
+            "comparisonAnswer": "http://ikm-group.ch/archiMEO/questionnaire#LessThan"
+        },
+        {
+            "questionLabel": "How many simultaneous users do you prefer?",
+            "questionURI": "<http://ikm-group.ch/archiMEO/questiondata#How_many_simultaneous_users_do_you_prefer>",
+            "answerList": [],
+            "answerType": "http://ikm-group.ch/archiMEO/questionnaire#ValueInsert",
+            "givenAnswerList": [
+                "20"
+            ],
+            "answerDatatype": "http://www.w3.org/2001/XMLSchema#integer",
+            "questionID": 9,
+            "comparisonOperationAnswers": [
+                {
+                    "answerLabel": "less equals than (<=)",
+                    "answerID": "http://ikm-group.ch/archiMEO/questionnaire#LessEqualsThan"
+                },
+                {
+                    "answerLabel": "Equals (=)",
+                    "answerID": "http://ikm-group.ch/archiMEO/questionnaire#Equals"
+                },
+                {
+                    "answerLabel": "less than (<)",
+                    "answerID": "http://ikm-group.ch/archiMEO/questionnaire#LessThan"
+                },
+                {
+                    "answerLabel": "not equal (!=)",
+                    "answerID": "http://ikm-group.ch/archiMEO/questionnaire#NotEqual"
+                },
+                {
+                    "answerLabel": "greater than (>)",
+                    "answerID": "http://ikm-group.ch/archiMEO/questionnaire#GreaterThan"
+                },
+                {
+                    "answerLabel": "greater equals than (>=)",
+                    "answerID": "http://ikm-group.ch/archiMEO/questionnaire#GreaterEqualsThan"
+                }
+            ],
+            "comparisonAnswer": "http://ikm-group.ch/archiMEO/questionnaire#GreaterEqualsThan"
+        },
+        {
+            "questionLabel": "What would you like to upload?",
+            "questionURI": "<http://ikm-group.ch/archiMEO/questiondata#What_would_you_like_to_upload>",
+            "answerList": [
+                {
+                    "answerLabel": "Video MP4",
+                    "answerID": "http://ikm-group.ch/archiMEO/questiondata#FileUpload_Video_MP4"
+                },
+                {
+                    "answerLabel": "PPT",
+                    "answerID": "http://ikm-group.ch/archiMEO/questiondata#FileUpload_PPT"
+                },
+                {
+                    "answerLabel": "pdf",
+                    "answerID": "http://ikm-group.ch/archiMEO/questiondata#FileUpload_PDF"
+                },
+                {
+                    "answerLabel": "mp3",
+                    "answerID": "http://ikm-group.ch/archiMEO/questiondata#FileUpload_MP3"
+                }
+            ],
+            "answerType": "http://ikm-group.ch/archiMEO/questionnaire#MultiSelection",
+            "givenAnswerList": [
+                "http://ikm-group.ch/archiMEO/questiondata#FileUpload_PDF"
+            ],
+            "questionID": 10,
+            "comparisonOperationAnswers": []
+        },
+        {
+            "questionLabel": "How many times should the process be executed?",
+            "questionURI": "<http://ikm-group.ch/archiMEO/questiondata#How_many_times_should_the_process_be_executed>",
+            "answerList": [],
+            "answerType": "http://ikm-group.ch/archiMEO/questionnaire#ValueInsert",
+            "givenAnswerList": [
+                "10"
+            ],
+            "answerDatatype": "http://www.w3.org/2001/XMLSchema#integer",
+            "questionID": 11,
+            "comparisonOperationAnswers": [
+                {
+                    "answerLabel": "less than (<)",
+                    "answerID": "http://ikm-group.ch/archiMEO/questionnaire#LessThan"
+                },
+                {
+                    "answerLabel": "Equals (=)",
+                    "answerID": "http://ikm-group.ch/archiMEO/questionnaire#Equals"
+                },
+                {
+                    "answerLabel": "not equal (!=)",
+                    "answerID": "http://ikm-group.ch/archiMEO/questionnaire#NotEqual"
+                },
+                {
+                    "answerLabel": "greater equals than (>=)",
+                    "answerID": "http://ikm-group.ch/archiMEO/questionnaire#GreaterEqualsThan"
+                },
+                {
+                    "answerLabel": "less equals than (<=)",
+                    "answerID": "http://ikm-group.ch/archiMEO/questionnaire#LessEqualsThan"
+                },
+                {
+                    "answerLabel": "greater than (>)",
+                    "answerID": "http://ikm-group.ch/archiMEO/questionnaire#GreaterThan"
+                }
+            ],
+            "comparisonAnswer": "http://ikm-group.ch/archiMEO/questionnaire#GreaterEqualsThan"
+        },
+        {
+            "questionLabel": "Should the process be executed on a daily, weekly, monthly or yearly basis?",
+            "questionURI": "<http://ikm-group.ch/archiMEO/questiondata#Should_the_process_be_executed_on_a_daily_weekly_monthly_or_yearly_basis>",
+            "answerList": [
+                {
+                    "answerLabel": "Process execution on a yearly basis",
+                    "answerID": "http://ikm-group.ch/archiMEO/questiondata#ProcessExecutionOnAYearlyBasis"
+                },
+                {
+                    "answerLabel": "on a weekly basis",
+                    "answerID": "http://ikm-group.ch/archiMEO/questiondata#ProcessExecutionOnAWeeklyBasis"
+                },
+                {
+                    "answerLabel": "Process execution on a monthly basis",
+                    "answerID": "http://ikm-group.ch/archiMEO/questiondata#ProcessExecutionOnAMonthlyBasis"
+                },
+                {
+                    "answerLabel": "on a daily basis",
+                    "answerID": "http://ikm-group.ch/archiMEO/questiondata#ProcessExecutionOnADailyBasis"
+                },
+                {
+                    "answerLabel": "Do not care",
+                    "answerID": "http://ikm-group.ch/archiMEO/questiondata#Do_not_care"
+                }
+            ],
+            "answerType": "http://ikm-group.ch/archiMEO/questionnaire#SingleSelection",
+            "givenAnswerList": [
+                "http://ikm-group.ch/archiMEO/questiondata#ProcessExecutionOnADailyBasis"
+            ],
+            "questionID": 12,
+            "comparisonOperationAnswers": []
+        },
+        {
+            "questionLabel": "What is your favorite response time level?",
+            "questionURI": "<http://ikm-group.ch/archiMEO/questiondata#What_is_your_favorite_response_time_level>",
+            "answerList": [
+                {
+                    "answerLabel": "medium",
+                    "answerID": "http://ikm-group.ch/archiMEO/questiondata#ResponseTime_Medium"
+                },
+                {
+                    "answerLabel": "low",
+                    "answerID": "http://ikm-group.ch/archiMEO/questiondata#ResponseTime_Low"
+                },
+                {
+                    "answerLabel": "high",
+                    "answerID": "http://ikm-group.ch/archiMEO/questiondata#ResponseTime_High"
+                }
+            ],
+            "answerType": "http://ikm-group.ch/archiMEO/questionnaire#SingleSelection",
+            "givenAnswerList": [
+                "http://ikm-group.ch/archiMEO/questiondata#ResponseTime_High"
+            ],
+            "questionID": 13,
+            "comparisonOperationAnswers": []
+        },
+        {
+            "questionLabel": "Select the category you would like to specify",
+            "questionURI": "<http://ikm-group.ch/archiMEO/questiondata#Select_the_category_you_would_like_to_specify>",
+            "answerList": [
+                {
+                    "answerLabel": "Payment",
+                    "answerID": "http://ikm-group.ch/archiMEO/questionnaire#Payment"
+                },
+                {
+                    "answerLabel": "Data Security",
+                    "answerID": "http://ikm-group.ch/archiMEO/questionnaire#DataSecurity"
+                }
+            ],
+            "answerType": "http://ikm-group.ch/archiMEO/questionnaire#SingleSelection",
+            "givenAnswerList": [
+                "http://ikm-group.ch/archiMEO/questionnaire#Payment"
+            ],
+            "questionID": 14,
+            "comparisonOperationAnswers": []
+        },
+        {
+            "questionLabel": "Select your preferred payment plan",
+            "questionURI": "<http://ikm-group.ch/archiMEO/questiondata#Select_your_preferred_payment_plan>",
+            "answerList": [
+                {
+                    "answerLabel": "Monthly Fee",
+                    "answerID": "http://ikm-group.ch/archimeo/bpaas#MonthlyFee"
+                },
+                {
+                    "answerLabel": "None",
+                    "answerID": "http://ikm-group.ch/archimeo/bpaas#NoPlan"
+                },
+                {
+                    "answerLabel": "Customizable Plan",
+                    "answerID": "http://ikm-group.ch/archimeo/bpaas#CustomizablePlan"
+                },
+                {
+                    "answerLabel": "Try Free First",
+                    "answerID": "http://ikm-group.ch/archimeo/bpaas#TryFreeFirst"
+                },
+                {
+                    "answerLabel": "Prepaid Annual Plan",
+                    "answerID": "http://ikm-group.ch/archimeo/bpaas#PrepaidAnnualPlan"
+                }
+            ],
+            "answerType": "http://ikm-group.ch/archiMEO/questionnaire#MultiSelection",
+            "givenAnswerList": [
+                "http://ikm-group.ch/archimeo/bpaas#MonthlyFee"
+            ],
+            "questionID": 15,
+            "comparisonOperationAnswers": []
+        },
+        {
+            "questionLabel": "Select the category you would like to specify",
+            "questionURI": "<http://ikm-group.ch/archiMEO/questiondata#Select_the_category_you_would_like_to_specify>",
+            "answerList": [
+                {
+                    "answerLabel": "Data Security",
+                    "answerID": "http://ikm-group.ch/archiMEO/questionnaire#DataSecurity"
+                }
+            ],
+            "answerType": "http://ikm-group.ch/archiMEO/questionnaire#SingleSelection",
+            "givenAnswerList": [
+                "http://ikm-group.ch/archiMEO/questionnaire#DataSecurity"
+            ],
+            "questionID": 16,
+            "comparisonOperationAnswers": []
+        },
+        {
+            "questionLabel": "What is your favorite backup retention time period?",
+            "questionURI": "<http://ikm-group.ch/archiMEO/questiondata#What_is_your_favorite_backup_retention_time_period>",
+            "answerList": [
+                {
+                    "answerLabel": "up to 1 day",
+                    "answerID": "http://ikm-group.ch/archimeo/bpaas#up_to_1_day"
+                },
+                {
+                    "answerLabel": "up to 1 month",
+                    "answerID": "http://ikm-group.ch/archimeo/bpaas#up_to_1_month"
+                },
+                {
+                    "answerLabel": "up to 2 month",
+                    "answerID": "http://ikm-group.ch/archimeo/bpaas#up_to_2_month"
+                },
+                {
+                    "answerLabel": "up to a half year",
+                    "answerID": "http://ikm-group.ch/archimeo/bpaas#up_to_half_year"
+                },
+                {
+                    "answerLabel": "up to 2 weeks",
+                    "answerID": "http://ikm-group.ch/archimeo/bpaas#up_to_2_weeks"
+                },
+                {
+                    "answerLabel": "up to 1 year",
+                    "answerID": "http://ikm-group.ch/archimeo/bpaas#up_to_1_year"
+                },
+                {
+                    "answerLabel": "up to 7 days",
+                    "answerID": "http://ikm-group.ch/archimeo/bpaas#up_to_7_days"
+                }
+            ],
+            "answerType": "http://ikm-group.ch/archiMEO/questionnaire#SingleSelection",
+            "givenAnswerList": [
+                "http://ikm-group.ch/archimeo/bpaas#up_to_1_month"
+            ],
+            "questionID": 17,
+            "comparisonOperationAnswers": []
+        },
+        {
+            "questionLabel": "What is your favorite backup frequency period?",
+            "questionURI": "<http://ikm-group.ch/archiMEO/questiondata#What_is_your_favorite_backup_frequency_period>",
+            "answerList": [
+                {
+                    "answerLabel": "yearly",
+                    "answerID": "http://ikm-group.ch/archimeo/bpaas#yearly"
+                },
+                {
+                    "answerLabel": "weekly",
+                    "answerID": "http://ikm-group.ch/archimeo/bpaas#weekly"
+                },
+                {
+                    "answerLabel": "monthly",
+                    "answerID": "http://ikm-group.ch/archimeo/bpaas#monthly"
+                },
+                {
+                    "answerLabel": "daily",
+                    "answerID": "http://ikm-group.ch/archimeo/bpaas#daily"
+                }
+            ],
+            "answerType": "http://ikm-group.ch/archiMEO/questionnaire#SingleSelection",
+            "givenAnswerList": [
+                "http://ikm-group.ch/archimeo/bpaas#daily"
+            ],
+            "questionID": 18,
+            "comparisonOperationAnswers": []
+        },
+        {
+            "questionLabel": " What is you favorite restore time period?",
+            "questionURI": "<http://ikm-group.ch/archiMEO/questiondata#What_is_you_favorite_restore_time_level>",
+            "answerList": [
+                {
+                    "answerLabel": "Medium",
+                    "answerID": "http://ikm-group.ch/archiMEO/questiondata#RestoreTimeMedium"
+                },
+                {
+                    "answerLabel": "Low",
+                    "answerID": "http://ikm-group.ch/archiMEO/questiondata#RestoreTimeLow"
+                },
+                {
+                    "answerLabel": "High",
+                    "answerID": "http://ikm-group.ch/archiMEO/questiondata#RestoreTimeHigh"
+                },
+                {
+                    "answerLabel": "None",
+                    "answerID": "http://ikm-group.ch/archiMEO/questiondata#None"
+                }
+            ],
+            "answerType": "http://ikm-group.ch/archiMEO/questionnaire#SingleSelection",
+            "givenAnswerList": [
+                "http://ikm-group.ch/archiMEO/questiondata#RestoreTimeHigh"
+            ],
+            "questionID": 19,
+            "comparisonOperationAnswers": []
+        },
+        {
+            "questionLabel": "What is your preferred data encryption level?",
+            "questionURI": "<http://ikm-group.ch/archiMEO/questiondata#What_is_your_prefered_data_encryption_level>",
+            "answerList": [
+                {
+                    "answerLabel": "Data Encryption Level Medium",
+                    "answerID": "http://ikm-group.ch/archiMEO/questiondata#DataEncryptionLevelMedium"
+                },
+                {
+                    "answerLabel": "Data Encryption Level Low",
+                    "answerID": "http://ikm-group.ch/archiMEO/questiondata#DataEncryptionLevelLow"
+                },
+                {
+                    "answerLabel": "Data Encryption Level High",
+                    "answerID": "http://ikm-group.ch/archiMEO/questiondata#DataEncryptionLevelHigh"
+                }
+            ],
+            "answerType": "http://ikm-group.ch/archiMEO/questionnaire#SingleSelection",
+            "givenAnswerList": [
+                "http://ikm-group.ch/archiMEO/questiondata#DataEncryptionLevelHigh"
+            ],
+            "questionID": 20,
+            "comparisonOperationAnswers": []
+        },
+        {
+            "questionLabel": "What is your favorite data location?",
+            "questionURI": "<http://ikm-group.ch/archiMEO/questiondata#What_is_your_favorite_data_location>",
+            "answerList": [],
+            "answerType": "http://ikm-group.ch/archiMEO/questionnaire#SearchSelection",
+            "givenAnswerList": [
+                "http://ikm-group.ch/archimeo/bpaas#Asia"
+            ],
+            "questionID": 21,
+            "searchNamespace": "http://ikm-group.ch/archimeo/bpaas#PhysicalLocation",
+            "comparisonOperationAnswers": []
+        }
+    ],
+    "currentQuestionDomain": "",
+    "completedQuestionDomainList": [
+        "http://ikm-group.ch/archiMEO/questionnaire#Functional",
+        "http://ikm-group.ch/archiMEO/questionnaire#TargetMarket",
+        "http://ikm-group.ch/archiMEO/questionnaire#ServiceSupport",
+        "http://ikm-group.ch/archiMEO/questionnaire#Performance",
+        "http://ikm-group.ch/archiMEO/questionnaire#Payment",
+        "http://ikm-group.ch/archiMEO/questionnaire#DataSecurity"
+    ]
+}
