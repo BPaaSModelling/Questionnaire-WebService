@@ -59,10 +59,11 @@ public final class CloudServiceFinder {
 
 		return performQueryOnRepositoryAndCreateCloudServiceResultSet(query);
 	}
-
+	//take the questions and answers that are coming from the client and put them in a temporary model in RDF 
 	private ParameterizedSparqlString generateAnswerTranslationConstructQuery(QuestionnaireItem item, String answer) {
 		ParameterizedSparqlString queryStr = new ParameterizedSparqlString();
 		queryStr.append("CONSTRUCT{");
+		
 		switch (item.getAnswerType()) {
 		case GlobalVariables.VALUEINSERT:
 			queryStr.append("?questionID questionnaire:questionIsAnsweredByValue \"" + answer + "\"^^xsd:decimal .");
@@ -85,7 +86,7 @@ public final class CloudServiceFinder {
 		Set<CloudServicePropery> map = new HashSet<CloudServicePropery>();
 		ParameterizedSparqlString queryStr = new ParameterizedSparqlString();
 		queryStr.append("SELECT * WHERE{");
-		queryStr.append(GlobalVariables.TEMPCLOUDSERVICE + " ?x ?y .");
+		queryStr.append(GlobalVariables.TEMPCLOUDSERVICE + " ?x ?y ."); //?x is the relationship and ?y is the value
 //		queryStr.append("FILTER(?x!=rdf:type) .");
 		queryStr.append("}");
 		ResultSet results = ontology.query(tempModel, queryStr);
@@ -176,6 +177,7 @@ public final class CloudServiceFinder {
 		}
 		return csrs;
 	}
+	
 	
 	private ParameterizedSparqlString generateServiceFinderQuery(Set<CloudServicePropery> properties, HashMap<String, String> propertyOperations) {
 		ParameterizedSparqlString queryStr = new ParameterizedSparqlString();
