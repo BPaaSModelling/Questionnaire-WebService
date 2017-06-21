@@ -37,6 +37,19 @@ questionnaire:AttributeHasQuestionRelation
   rdfs:label "AttributeHasQuestionRelation" ;
   rdfs:range questionnaire:Question ;
 .
+questionnaire:CloudServiceCategory
+  rdf:type owl:Class ;
+  rdfs:subClassOf questionnaire:Model ;
+.
+questionnaire:CloudServiceElement
+  rdf:type owl:Class ;
+  rdfs:subClassOf questionnaire:Model ;
+.
+questionnaire:DataSecurity
+  rdf:type owl:Class ;
+  rdfs:label "Data Security" ;
+  rdfs:subClassOf questionnaire:Question ;
+.
 questionnaire:Equality
   rdf:type owl:Class ;
   rdfs:label "Equality" ;
@@ -45,6 +58,11 @@ questionnaire:Equality
 questionnaire:Equals
   rdf:type questionnaire:Equality ;
   rdfs:label "Equals (=)" ;
+.
+questionnaire:Functional
+  rdf:type owl:Class ;
+  rdfs:label "Functional" ;
+  rdfs:subClassOf questionnaire:Question ;
 .
 questionnaire:GreaterEqualsThan
   rdf:type questionnaire:Inequality ;
@@ -72,6 +90,10 @@ questionnaire:LogicalOperators
   rdfs:label "LogicalOperators" ;
   rdfs:subClassOf questionnaire:Questionnaire ;
 .
+questionnaire:Model
+  rdf:type owl:Class ;
+  rdfs:subClassOf owl:Thing ;
+.
 questionnaire:MultiSelection
   rdf:type owl:Class ;
   rdfs:label "MultiSelection" ;
@@ -81,6 +103,21 @@ questionnaire:NotEqual
   rdf:type questionnaire:Inequality ;
   rdfs:label "not equal (!=)" ;
 .
+questionnaire:NotSortedYet
+  rdf:type owl:Class ;
+  rdfs:label "NotSortedYet" ;
+  rdfs:subClassOf questionnaire:Question ;
+.
+questionnaire:Payment
+  rdf:type owl:Class ;
+  rdfs:label "Payment" ;
+  rdfs:subClassOf questionnaire:Question ;
+.
+questionnaire:Performance
+  rdf:type owl:Class ;
+  rdfs:label "Performance" ;
+  rdfs:subClassOf questionnaire:Question ;
+.
 questionnaire:Question
   rdf:type owl:Class ;
   rdfs:label "Question" ;
@@ -89,26 +126,41 @@ questionnaire:Question
 questionnaire:Questionnaire
   rdf:type owl:Class ;
   rdfs:label "Questionnaire" ;
-  rdfs:subClassOf owl:Thing ;
+  rdfs:subClassOf questionnaire:Model ;
 .
 questionnaire:SearchSelection
   rdf:type owl:Class ;
   rdfs:label "DrilldownSelection" ;
   rdfs:subClassOf questionnaire:AnswerType ;
 .
+questionnaire:ServiceSupport
+  rdf:type owl:Class ;
+  rdfs:label "Service Support" ;
+  rdfs:subClassOf questionnaire:Question ;
+.
 questionnaire:SingleSelection
   rdf:type owl:Class ;
   rdfs:label "SingleSelection" ;
   rdfs:subClassOf questionnaire:AnswerType ;
+.
+questionnaire:TargetMarket
+  rdf:type owl:Class ;
+  rdfs:label "Target Market" ;
+  rdfs:subClassOf questionnaire:Question ;
 .
 questionnaire:ValueInsert
   rdf:type owl:Class ;
   rdfs:label "Value Insert" ;
   rdfs:subClassOf questionnaire:AnswerType ;
 .
+questionnaire:cloudServiceElementHasCloudServiceCategory
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain questionnaire:CloudServiceElement ;
+  rdfs:range questionnaire:CloudServiceCategory ;
+.
 questionnaire:questionHasAnnotationRelation
   rdf:type rdf:Property ;
-  rdfs:domain questionnaire:Question ;
+  rdfs:domain questionnaire:Model ;
   rdfs:label "questionHasAnnotationRelation" ;
   rdfs:range rdf:Property ;
 .
@@ -153,39 +205,4 @@ questionnaire:valueInsertAnswerTypeHasDatatype
   rdfs:domain questionnaire:ValueInsert ;
   rdfs:label "valueInsertAnswerTypeHasDatatype" ;
   rdfs:range rdfs:Datatype ;
-.
-questionnaire:DataSecurity
-  rdf:type owl:Class ;
-  rdfs:label "Data Security" ;
-  rdfs:subClassOf questionnaire:Question ;
-.
-questionnaire:Functional
-  rdf:type owl:Class ;
-  rdfs:label "Functional" ;
-  rdfs:subClassOf questionnaire:Question ;
-.
-questionnaire:NotSortedYet
-  rdf:type owl:Class ;
-  rdfs:label "NotSortedYet" ;
-  rdfs:subClassOf questionnaire:Question ;
-.
-questionnaire:Payment
-  rdf:type owl:Class ;
-  rdfs:label "Payment" ;
-  rdfs:subClassOf questionnaire:Question ;
-.
-questionnaire:Performance
-  rdf:type owl:Class ;
-  rdfs:label "Performance" ;
-  rdfs:subClassOf questionnaire:Question ;
-.
-questionnaire:ServiceSupport
-  rdf:type owl:Class ;
-  rdfs:label "Service Support" ;
-  rdfs:subClassOf questionnaire:Question ;
-.
-questionnaire:TargetMarket
-  rdf:type owl:Class ;
-  rdfs:label "Target Market" ;
-  rdfs:subClassOf questionnaire:Question ;
 .

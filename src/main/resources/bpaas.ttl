@@ -977,6 +977,11 @@ bpaas:cloudServiceHasPaymentPlan
   rdfs:domain bpaas:CloudService ;
   rdfs:range bpaas:PaymentPlan ;
 .
+bpaas:cloudServiceHasPhysicalID
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain bpaas:CloudService ;
+  rdfs:range xsd:string ;
+.
 bpaas:cloudServiceHasProcessedDataLocation
   rdf:type owl:ObjectProperty ;
   rdfs:domain bpaas:CloudService ;
