@@ -87,8 +87,8 @@ public final class OntologyManager {
 		System.out.println("***Performed query***\n" + queryStr.toString() + "***Performed query***\n");
 		Query query = QueryFactory.create(queryStr.toString());
 		QueryExecution qexec = QueryExecutionFactory.create(query, rdfModel);
-
 		return qexec.execSelect();
+		
 	}
 
 	private void addNamespacesToQuery(ParameterizedSparqlString queryStr) {
@@ -138,6 +138,7 @@ public final class OntologyManager {
 		addNamespacesToQuery(queryStr);
 		System.out.println(queryStr.toString());
 		UpdateAction.parseExecute(queryStr.toString(), model);
+		
 	}
 
 }

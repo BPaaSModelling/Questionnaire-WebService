@@ -21,7 +21,6 @@ bdata:Gmail
   rdf:type bpaas:CloudService ;
   bpaas:cloudServiceHasAPQC <http://ikm-group.ch/archimeo/apqc#9_2_2_3_Transmit_billing_data_to_customers_10796> ;
   bpaas:cloudServiceHasAction fbpdo:Send ;
-  bpaas:cloudServiceHasObject fbpdo:Invoice ;
   bpaas:cloudServiceHasAvailabilityInPercent 99.9 ;
   bpaas:cloudServiceHasBackupFrequency bpaas:monthly ;
   bpaas:cloudServiceHasBackupRestoreInGBPerHour 1 ;
@@ -29,6 +28,7 @@ bdata:Gmail
   bpaas:cloudServiceHasDataStorageInGB 5 ;
   bpaas:cloudServiceHasDescription "https://www.gmail.com" ;
   bpaas:cloudServiceHasEncryptionType bpaas:Sha256 ;
+  bpaas:cloudServiceHasObject fbpdo:Invoice ;
   bpaas:cloudServiceHasPaymentPlan bpaas:FreeOfCharge ;
   bpaas:cloudServiceHasPaymentPlan bpaas:MonthlyFee ;
   bpaas:cloudServiceHasProcessedDataLocation bpaas:USA ;
@@ -48,7 +48,6 @@ bdata:MailJet
   rdf:type bpaas:CloudService ;
   bpaas:cloudServiceHasAPQC <http://ikm-group.ch/archimeo/apqc#9_2_2_3_Transmit_billing_data_to_customers_10796> ;
   bpaas:cloudServiceHasAction fbpdo:Send ;
-  bpaas:cloudServiceHasObject fbpdo:Invoice ;
   bpaas:cloudServiceHasAvailabilityInPercent 99.999 ;
   bpaas:cloudServiceHasBackupFrequency bpaas:daily ;
   bpaas:cloudServiceHasBackupRestoreInGBPerHour 1 ;
@@ -56,6 +55,7 @@ bdata:MailJet
   bpaas:cloudServiceHasDataStorageInGB 1 ;
   bpaas:cloudServiceHasDescription "https://eu.mailjet.com/#" ;
   bpaas:cloudServiceHasEncryptionType bpaas:Sha256 ;
+  bpaas:cloudServiceHasObject fbpdo:Invoice ;
   bpaas:cloudServiceHasPaymentPlan bpaas:MonthlyFee ;
   bpaas:cloudServiceHasProcessedDataLocation bpaas:French ;
   bpaas:cloudServiceHasResponseTime_in_ms 1 ;

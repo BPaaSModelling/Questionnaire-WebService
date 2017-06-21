@@ -1,6 +1,9 @@
 package ch.fhnw.bpaas.webservice;
 
+import java.util.UUID;
+
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Response;
@@ -9,9 +12,12 @@ import javax.ws.rs.core.Response.Status;
 import org.apache.jena.query.ParameterizedSparqlString;
 import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;
+import org.apache.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.ModelFactory;
 
 import com.google.gson.Gson;
 
+import ch.fhnw.bpaas.model.cloudservice.CloudServiceModel;
 import ch.fhnw.bpaas.model.search.SearchResult;
 import ch.fhnw.bpaas.model.search.SearchResultsModel;
 import ch.fhnw.bpaas.webservice.exceptions.NoResultsException;
@@ -66,5 +72,34 @@ public class Insert {
 			throw new NoResultsException("nore more results");
 		}
 		return sr;
+	}
+	
+	@POST
+	@Path("/addcs")
+	public Response getMsg(String json) {
+		
+		System.out.println("/insert received: " +json);
+		
+		Gson gson = new Gson();
+		CloudServiceModel csm = gson.fromJson(json, CloudServiceModel.class);
+		
+		String id = UUID.randomUUID().toString();
+		
+		ParameterizedSparqlString querStr = new ParameterizedSparqlString();
+		
+		querStr.append("INSERT DATA{");
+		querStr.append("bpaas:CloudService" +id  +" rdf:type bpaas:CloudService ;");
+		querStr.append("rdfs:label \"" + csm.getCsName() +"\" ;");
+		querStr.append("bpaas:cloudServiceHasPhysicalID \"" + csm.getCsUri() +"\" ;");
+		querStr.append("bpaas:cloudServiceHasAvailabilityInPercent \"" + csm.getCsAvailability() +"\" ;");
+		querStr.append("}");
+		Model modelTpl = ModelFactory.createDefaultModel();
+		ontology.insertQuery(modelTpl, querStr);
+		
+		
+//		String newJson = gson.toJson(jobOfferModel);
+		
+		return Response.status(Status.OK).entity("{}").build();
+
 	}
 }
