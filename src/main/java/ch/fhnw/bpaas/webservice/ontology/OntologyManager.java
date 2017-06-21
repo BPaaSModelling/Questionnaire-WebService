@@ -141,4 +141,12 @@ public final class OntologyManager {
 		
 	}
 
+	public void insertQuery(ParameterizedSparqlString queryStr) {
+		addNamespacesToQuery(queryStr);
+		System.out.println(queryStr.toString());
+		printModel(rdfModel, "01_beforeInsert.txt");
+		UpdateAction.parseExecute(queryStr.toString(), rdfModel);
+		printModel(rdfModel, "02_afterInsert.txt");
+	}
+
 }

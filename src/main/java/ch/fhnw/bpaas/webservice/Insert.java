@@ -93,8 +93,8 @@ public class Insert {
 		querStr.append("bpaas:cloudServiceHasPhysicalID \"" + csm.getCsUri() +"\" ;");
 		querStr.append("bpaas:cloudServiceHasAvailabilityInPercent \"" + csm.getCsAvailability() +"\" ;");
 		querStr.append("}");
-		Model modelTpl = ModelFactory.createDefaultModel();
-		ontology.insertQuery(modelTpl, querStr);
+		//Model modelTpl = ModelFactory.createDefaultModel();
+		ontology.insertQuery(querStr);
 		
 		
 //		String newJson = gson.toJson(jobOfferModel);
