@@ -65,7 +65,7 @@ public final class CloudServiceFinder {
 		queryStr.append("CONSTRUCT{");
 		
 		switch (item.getAnswerType()) {
-		case GlobalVariables.VALUEINSERT:
+		case GlobalVariables.ANSWERTYPE_VALUEINSERT:
 			queryStr.append("?questionID questionnaire:questionIsAnsweredByValue \"" + answer + "\"^^xsd:decimal .");
 			queryStr.append("?questionID questionnaire:questionHasComparisonOperation <" + item.getComparisonAnswer() + "> .");
 			break;

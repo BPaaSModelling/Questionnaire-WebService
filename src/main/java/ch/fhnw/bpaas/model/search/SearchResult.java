@@ -10,4 +10,5 @@ public class SearchResult {
 		this.label = label;
 	}
 
+
 }

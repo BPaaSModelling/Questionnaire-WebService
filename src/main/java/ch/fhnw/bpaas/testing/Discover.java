@@ -118,7 +118,7 @@ public class Discover {
 		ParameterizedSparqlString queryStr = new ParameterizedSparqlString();
 		queryStr.append("CONSTRUCT{");
 		switch (item.getAnswerType()) {
-		case GlobalVariables.VALUEINSERT:
+		case GlobalVariables.ANSWERTYPE_VALUEINSERT:
 			queryStr.append("?questionID questionnaire:questionIsAnswerdByValue \"" + answer + "\"^^xsd:string .");
 			break;
 		default:

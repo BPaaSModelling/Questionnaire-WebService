@@ -37,7 +37,7 @@ questionnaire:AttributeHasQuestionRelation
   rdfs:label "AttributeHasQuestionRelation" ;
   rdfs:range questionnaire:Question ;
 .
-questionnaire:CloudServiceCategory
+questionnaire:CloudServiceDomain
   rdf:type owl:Class ;
   rdfs:subClassOf questionnaire:Model ;
 .
@@ -153,10 +153,10 @@ questionnaire:ValueInsert
   rdfs:label "Value Insert" ;
   rdfs:subClassOf questionnaire:AnswerType ;
 .
-questionnaire:cloudServiceElementHasCloudServiceCategory
+questionnaire:cloudServiceElementHasCloudServiceDomain
   rdf:type owl:ObjectProperty ;
   rdfs:domain questionnaire:CloudServiceElement ;
-  rdfs:range questionnaire:CloudServiceCategory ;
+  rdfs:range questionnaire:CloudServiceDomain ;
 .
 questionnaire:questionHasAnnotationRelation
   rdf:type rdf:Property ;

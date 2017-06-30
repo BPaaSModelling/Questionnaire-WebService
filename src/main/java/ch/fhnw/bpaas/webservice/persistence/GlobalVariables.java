@@ -15,8 +15,11 @@ public class GlobalVariables {
 	public static final String FUNKTIONAL_URI = "http://ikm-group.ch/archiMEO/questionnaire#Functional";
 	public static final String DOMAIN_SELECTION_QUESTION = "http://ikm-group.ch/archiMEO/questiondata#Select_the_category_you_would_like_to_specify";
 	
-	public static final String VALUEINSERT = "http://ikm-group.ch/archiMEO/questionnaire#ValueInsert";
+	public static final String ANSWERTYPE_VALUEINSERT = "http://ikm-group.ch/archiMEO/questionnaire#ValueInsert";
 	public static final String ANSWERTYPE_SEARCH_SELECTION = "http://ikm-group.ch/archiMEO/questionnaire#SearchSelection";
+	public static final String ANSWERTYPE_MULTI_SELECTION = "http://ikm-group.ch/archiMEO/questionnaire#MultiSelection";
+	public static final String ANSWERTYPE_SINGLE_SELECTION = "http://ikm-group.ch/archiMEO/questionnaire#SingleSelection";
+	
 	public static final String MAIN_MODEL_EXPORT = "main_model_export.txt";
 	
 	public static final String OPERATION_GREATEREQUALSTHAN = "http://ikm-group.ch/archiMEO/questionnaire#GreaterEqualsThan";

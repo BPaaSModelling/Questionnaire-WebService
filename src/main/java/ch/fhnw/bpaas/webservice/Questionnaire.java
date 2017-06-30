@@ -168,7 +168,7 @@ public class Questionnaire {
 			
 			if(qi.getAnswerType().equals(GlobalVariables.ANSWERTYPE_SEARCH_SELECTION)){
 				qi.setAnswerSearchNamespace(soln.get("?sns").toString());
-			}else if(qi.getAnswerType().equals(GlobalVariables.VALUEINSERT)){
+			}else if(qi.getAnswerType().equals(GlobalVariables.ANSWERTYPE_VALUEINSERT)){
 				qi.setAnswerDatatype(soln.get("?answerDatatype").toString());
 				qi.setValueInsertComparisonOperationAnswers(getComparisonOperations());
 			}else{

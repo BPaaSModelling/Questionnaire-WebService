@@ -2,35 +2,32 @@ package ch.fhnw.bpaas.model.cloudservice;
 
 import java.util.ArrayList;
 
-import ch.fhnw.bpaas.model.questionnaire.Answer;
-
 public class CloudServiceModel {
-private String csUri;
-private String csName;
-private String csAvailability;
-public String getCsUri() {
-	return csUri;
+private String URI;
+private String label;
+private ArrayList<CloudServiceElementModel> properties;
+public String getURI() {
+	return URI;
 }
-public void setCsUri(String csUri) {
-	this.csUri = csUri;
+public void setURI(String URI) {
+	this.URI = URI;
 }
-public String getCsName() {
-	return csName;
+public String getLabel() {
+	return label;
 }
-public void setCsName(String csName) {
-	this.csName = csName;
+public void setLabel(String label) {
+	this.label = label;
 }
-public String getCsAvailability() {
-	return csAvailability;
+public ArrayList<CloudServiceElementModel> getProperties() {
+	return properties;
 }
-public void setCsAvailability(String csAvailability) {
-	this.csAvailability = csAvailability;
+public void setProperties(ArrayList<CloudServiceElementModel> properties) {
+	this.properties = properties;
 }
-public CloudServiceModel(String csUri, String csName, String csAvailability) {
-	super();
-	this.csUri = csUri;
-	this.csName = csName;
-	this.csAvailability = csAvailability;
+public CloudServiceModel() {
+	URI = "";
+	label = "";
+	properties = new ArrayList<CloudServiceElementModel>();
 }
 
 }
