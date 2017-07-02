@@ -34,32 +34,30 @@ import ch.fhnw.bpaas.webservice.persistence.GlobalVariables;
 public class Insert {
 	private Gson gson = new Gson();
 	private OntologyManager ontology = OntologyManager.getInstance();
-	private boolean debug = false;
+	private boolean debug_properties = false;
 
 	@GET
 	public Response getCSParameters() {
 		System.out.println("\n####################<start>####################");
 		System.out.println("/requested parameters to generate CloudService" );
 		System.out.println("####################<end>####################");
-	CloudServiceModel rawModel = new CloudServiceModel();
-		
-		
+		ArrayList<CloudServiceElementModel> result = new ArrayList<CloudServiceElementModel>();
 		
 		try {
-				rawModel.setProperties(queryRawCsElements());
-				if (debug){
-				for (int index = 0; index < rawModel.getProperties().size(); index++){
+				result = queryRawCsElements();
+				if (debug_properties){
+				for (int index = 0; index < result.size(); index++){
 				System.out.println("Element "+index+": ");
-				System.out.println("PropertyURI -->" + rawModel.getProperties().get(index).getPropertyURI());
-				System.out.println("Propertylabel -->" + rawModel.getProperties().get(index).getPropertyLabel());
-				System.out.println("AnswerList -->" + rawModel.getProperties().get(index).getAnswerList().size());
-				System.out.println("AnswerDatatype -->" + rawModel.getProperties().get(index).getAnswerDatatype());
-				System.out.println("GivenAnswerList -->" + rawModel.getProperties().get(index).getGivenAnswerList().size());
-				System.out.println("SearchNamespace -->" + rawModel.getProperties().get(index).getSearchNamespace());
-				System.out.println("ComparisonOperationAnswer -->" + rawModel.getProperties().get(index).getComparisonOperationAnswer().size());
-				System.out.println("ComparisonAnswer -->" + rawModel.getProperties().get(index).getComparisonAnswer());
-				System.out.println("TypeOfAnswer -->" + rawModel.getProperties().get(index).getTypeOfAnswer());
-				System.out.println("Domain -->" + rawModel.getProperties().get(index).getDomain());
+				System.out.println("PropertyURI -->" + result.get(index).getPropertyURI());
+				System.out.println("Propertylabel -->" + result.get(index).getPropertyLabel());
+				System.out.println("AnswerList -->" + result.get(index).getAnswerList().size());
+				System.out.println("AnswerDatatype -->" + result.get(index).getAnswerDatatype());
+				System.out.println("GivenAnswerList -->" + result.get(index).getGivenAnswerList().size());
+				System.out.println("SearchNamespace -->" + result.get(index).getSearchNamespace());
+				System.out.println("ComparisonOperationAnswer -->" + result.get(index).getComparisonOperationAnswer().size());
+				System.out.println("ComparisonAnswer -->" + result.get(index).getComparisonAnswer());
+				System.out.println("TypeOfAnswer -->" + result.get(index).getTypeOfAnswer());
+				System.out.println("Domain -->" + result.get(index).getDomain());
 				System.out.println("");
 				}
 				}
@@ -68,9 +66,7 @@ public class Insert {
 		}
 		
 		
-		
-		
-		String json = gson.toJson(rawModel);
+		String json = gson.toJson(result);
 		System.out.println("\n####################<start>####################");
 		System.out.println("/search genereated json: " +json);
 		System.out.println("####################<end>####################");
