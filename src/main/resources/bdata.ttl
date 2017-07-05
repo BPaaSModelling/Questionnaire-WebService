@@ -127,7 +127,7 @@ bdata:Ninja_Invoicing_System
   bpaas:cloudServiceHasTargetMarket bpaas:Businesses ;
   rdfs:label "Ninja Invoicing System" ;
 .
-bdata:Ninja_Invoicing_System_copy
+bdata:Ninja_email
   rdf:type bpaas:CloudService ;
   bpaas:cloudServiceHasAPQC <http://ikm-group.ch/archimeo/apqc#9_0_Manage_Financial_Resources_17058> ;
   bpaas:cloudServiceHasAccessLogAvailabilityInMonths 2 ;
@@ -155,7 +155,7 @@ bdata:Ninja_Invoicing_System_copy
   bpaas:cloudServiceHasServiceSupportResponsiveness bpaas:at_most_1_working_day ;
   bpaas:cloudServiceHasSimultaneousUsers 500 ;
   bpaas:cloudServiceHasTargetMarket bpaas:Businesses ;
-  rdfs:label "Another Invoicing System" ;
+  rdfs:label "Ninja e-mail System" ;
 .
 bdata:Open_Source_Billing
   rdf:type bpaas:CloudService ;
@@ -215,6 +215,10 @@ bdata:Simple_Invoices
   bpaas:cloudServiceHasStoredDataLocation bpaas:Germany ;
   bpaas:cloudServiceHasTargetMarket bpaas:Businesses ;
   rdfs:label "Simple Invoices - Invoicing System" ;
+.
+bdata:SugarCRM
+  rdf:type bpaas:CloudService ;
+  rdfs:label "SugarCRM" ;
 .
 bdata:YMENS_CRM
   rdf:type bpaas:CloudService ;
