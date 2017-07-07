@@ -30,13 +30,15 @@ import ch.fhnw.bpaas.webservice.ontology.NAMESPACE;
 import ch.fhnw.bpaas.webservice.ontology.OntologyManager;
 import ch.fhnw.bpaas.webservice.persistence.GlobalVariables;
 
-@Path("/cselements")
+@Path("/cloudservice")
 public class Insert {
 	private Gson gson = new Gson();
 	private OntologyManager ontology = OntologyManager.getInstance();
 	private boolean debug_properties = false;
+	private String class_type = "questionnaire:CloudServiceElement";
 
 	@GET
+	@Path("/cselements")
 	public Response getCSParameters() {
 		System.out.println("\n####################<start>####################");
 		System.out.println("/requested parameters to generate CloudService" );
@@ -78,7 +80,7 @@ public class Insert {
 		ArrayList<CloudServiceElementModel> allCloudServiceElements = new ArrayList<CloudServiceElementModel>();
 		
 		queryStr.append("SELECT ?field ?label ?qType ?searchnamespace ?datatype ?lblDomain WHERE {");
-		queryStr.append("?field rdf:type* questionnaire:CloudServiceElement .");
+		queryStr.append("?field rdf:type* " + class_type + " .");
 		queryStr.append("?field rdfs:label ?label .");
 		queryStr.append("?field rdf:type ?qType .");
 		queryStr.append("?qType rdfs:subClassOf* questionnaire:AnswerType .");
@@ -168,32 +170,64 @@ public class Insert {
 		return answers;
 	}
 	
-//	@POST
-//	@Path("/addcs")
-//	public Response getMsg(String json) {
-//		
-//		System.out.println("/insert received: " +json);
-//		
-//		Gson gson = new Gson();
-//		CloudServiceModel csm = gson.fromJson(json, CloudServiceModel.class);
-//		
-//		String id = UUID.randomUUID().toString();
-//		
-//		ParameterizedSparqlString querStr = new ParameterizedSparqlString();
-//		
-//		querStr.append("INSERT DATA{");
-//		querStr.append("bpaas:CloudService" +id  +" rdf:type bpaas:CloudService ;");
-//		querStr.append("rdfs:label \"" + csm.getCsName() +"\" ;");
-//		querStr.append("bpaas:cloudServiceHasPhysicalID \"" + csm.getCsUri() +"\" ;");
-//		querStr.append("bpaas:cloudServiceHasAvailabilityInPercent \"" + csm.getCsAvailability() +"\" ;");
-//		querStr.append("}");
-//		//Model modelTpl = ModelFactory.createDefaultModel();
-//		ontology.insertQuery(querStr);
-//		
-//		
-////		String newJson = gson.toJson(jobOfferModel);
-//		
-//		return Response.status(Status.OK).entity("{}").build();
-//
-//	}
+	@POST
+	@Path("/addcs")
+	public Response getMsg(String json) {
+		
+		System.out.println("/csModel received: " +json);
+		
+		Gson gson = new Gson();
+		CloudServiceModel csm = gson.fromJson(json, CloudServiceModel.class);
+		
+		String id = UUID.randomUUID().toString();
+		csm.setProperties(addAnnotationRelations(csm.getProperties()));
+		ParameterizedSparqlString querStr = new ParameterizedSparqlString();
+		
+		querStr.append("INSERT DATA{");
+		querStr.append("bpaas:CloudService" + "CloudService"+id  +" rdf:type bpaas:CloudService ;");
+		System.out.println("    CloudService ID: "+ "CloudService"+id);
+		querStr.append("rdfs:label \"" + csm.getLabel() +"\" ;");
+		System.out.println("    CloudService Label: "+ csm.getLabel());
+		for (int i = 0; i < csm.getProperties().size(); i++){
+			if (csm.getProperties().get(i).getTypeOfAnswer().equals(GlobalVariables.ANSWERTYPE_VALUEINSERT)){
+				querStr.append("<" + csm.getProperties().get(i).getAnnotationRelation() +"> \"" + csm.getProperties().get(i).getComparisonAnswer().trim() + "\"^^<" + csm.getProperties().get(i).getAnswerDatatype() + ">" +" ;");
+				System.out.println("    "+csm.getProperties().get(i).getPropertyLabel() + ": " + csm.getProperties().get(i).getComparisonAnswer().trim());
+			} else {
+				if (csm.getProperties().get(i).getGivenAnswerList() != null){
+				for (int j = 0; j < csm.getProperties().get(i).getGivenAnswerList().size(); j++){
+					querStr.append("<" + csm.getProperties().get(i).getAnnotationRelation() +"> " + "<" + csm.getProperties().get(i).getGivenAnswerList().get(j).getAnswerID().trim() +"> ;");
+					System.out.println("    "+csm.getProperties().get(i).getPropertyLabel() + ": " + csm.getProperties().get(i).getGivenAnswerList().get(j).getAnswerLabel().trim());
+				}
+				}
+			}
+		}
+	
+		querStr.append("}");
+		//Model modelTpl = ModelFactory.createDefaultModel();
+		ontology.insertQuery(querStr);
+	
+		return Response.status(Status.OK).entity("{}").build();
+
+	}
+	
+	private ArrayList<CloudServiceElementModel> addAnnotationRelations(ArrayList<CloudServiceElementModel> elements){
+		ParameterizedSparqlString queryStr = new ParameterizedSparqlString();
+		queryStr.append("SELECT ?relation ?element WHERE {");
+		queryStr.append("?element rdf:type " + class_type + ".");
+		queryStr.append("?element questionnaire:questionHasAnnotationRelation ?relation .");
+		queryStr.append("}");
+		
+		ResultSet results = ontology.query(queryStr);
+
+		while (results.hasNext()) {
+			QuerySolution soln = results.next();
+			for (int i = 0; i < elements.size(); i++){
+				if (elements.get(i).getPropertyURI().equals(soln.get("?element").toString())){
+					elements.get(i).setAnnotationRelation(soln.get("?relation").toString());
+				}
+			}
+		}
+		
+		return elements;
+	}
 }

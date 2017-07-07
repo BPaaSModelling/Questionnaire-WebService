@@ -19,6 +19,7 @@ questiondata:APQC_category_that_reflect_the_functional_requirement
   rdf:type questionnaire:CloudServiceElement ;
   rdf:type questionnaire:SearchSelection ;
   questionnaire:cloudServiceElementHasCloudServiceDomain questiondata:Functional ;
+  questionnaire:questionHasAnnotationRelation bpaas:cloudServiceHasAPQC ;
   questionnaire:searchSelectionHasSearchNamespace <http://ikm-group.ch/archimeo/apqc#AmericanProductivityAndQualityCenter> ;
   rdfs:label "APQC category that reflect the functional requirement" ;
 .
@@ -26,6 +27,7 @@ questiondata:Action_does_reflect_the_functional_requirement
   rdf:type questionnaire:CloudServiceElement ;
   rdf:type questionnaire:SearchSelection ;
   questionnaire:cloudServiceElementHasCloudServiceDomain questiondata:Functional ;
+  questionnaire:questionHasAnnotationRelation bpaas:cloudServiceHasAction ;
   questionnaire:searchSelectionHasSearchNamespace <http://ikm-group.ch/archimeo/fbpdo#Action> ;
   rdfs:label "Action that reflect the functional requirement" ;
 .
@@ -124,6 +126,7 @@ questiondata:Data_location
   rdf:type questionnaire:CloudServiceElement ;
   rdf:type questionnaire:SearchSelection ;
   questionnaire:cloudServiceElementHasCloudServiceDomain questiondata:DataSecurity ;
+  questionnaire:questionHasAnnotationRelation bpaas:cloudServiceHasProcessedDataLocation ;
   questionnaire:searchSelectionHasSearchNamespace bpaas:PhysicalLocation ;
   rdfs:label "Data location" ;
 .
@@ -242,6 +245,7 @@ questiondata:Object_does_reflect_the_functional_requirement
   rdf:type questionnaire:CloudServiceElement ;
   rdf:type questionnaire:SearchSelection ;
   questionnaire:cloudServiceElementHasCloudServiceDomain questiondata:Functional ;
+  questionnaire:questionHasAnnotationRelation bpaas:cloudServiceHasObject ;
   questionnaire:searchSelectionHasSearchNamespace <http://ikm-group.ch/archimeo/fbpdo#Object> ;
   rdfs:label "Object that reflect the functional requirement" ;
 .
@@ -623,4 +627,32 @@ questiondata:do_not_overwrite_events
 questionnaire:PerformanceYes
   rdf:type questionnaire:Answer ;
   rdfs:label "Yes" ;
+.
+bpaas:CloudServiceCloudService4e824dd0-b727-42e9-b21d-07c459cfda2b
+  rdf:type bpaas:CloudService ;
+  <file:///D:/Programmi/tbcme-5.3.1.v20170605-2006-win32.win32.x86_64/null> "<http://ikm-group.ch/archimeo/apqc#4_0_Deliver_Physical_Products_20022> " ;
+  <file:///D:/Programmi/tbcme-5.3.1.v20170605-2006-win32.win32.x86_64/null> "<http://ikm-group.ch/archimeo/bpaas#Italy> " ;
+  <file:///D:/Programmi/tbcme-5.3.1.v20170605-2006-win32.win32.x86_64/null> "<http://ikm-group.ch/archimeo/fbpdo#Ads> " ;
+  <file:///D:/Programmi/tbcme-5.3.1.v20170605-2006-win32.win32.x86_64/null> "<http://ikm-group.ch/archimeo/fbpdo#Upload> " ;
+  bpaas:cloudServiceHasAvailabilityInPercent "30^^<http://www.w3.org/2001/XMLSchema#integer>" ;
+  bpaas:cloudServiceHasBackupFrequency "<http://ikm-group.ch/archimeo/bpaas#yearly> " ;
+  bpaas:cloudServiceHasBackupRestoreInGBPerHour "<http://ikm-group.ch/archiMEO/questiondata#None> " ;
+  bpaas:cloudServiceHasBackupRetentionTime "<http://ikm-group.ch/archimeo/bpaas#up_to_7_days> " ;
+  bpaas:cloudServiceHasDataStorageInGB "20^^<http://www.w3.org/2001/XMLSchema#integer>" ;
+  bpaas:cloudServiceHasDataStorageInGB "<http://ikm-group.ch/archiMEO/questiondata#FileUpload_PDF> " ;
+  bpaas:cloudServiceHasDataStorageInGB "<http://ikm-group.ch/archiMEO/questiondata#FileUpload_PPT> " ;
+  bpaas:cloudServiceHasEncryptionType "<http://ikm-group.ch/archiMEO/questiondata#DataEncryptionLevelMedium> " ;
+  bpaas:cloudServiceHasPaymentPlan "<http://ikm-group.ch/archimeo/bpaas#NoPlan> " ;
+  bpaas:cloudServiceHasResponseTime_in_ms "<http://ikm-group.ch/archiMEO/questiondata#ResponseTime_Medium> " ;
+  bpaas:cloudServiceHasServiceSupport "<http://ikm-group.ch/archimeo/bpaas#Twenty4Seven> " ;
+  bpaas:cloudServiceHasSimultaneousUsers "25^^<http://www.w3.org/2001/XMLSchema#integer>" ;
+  bpaas:cloudServiceHasTargetMarket "<http://ikm-group.ch/archimeo/bpaas#Businesses> " ;
+  rdfs:label "MyNewCS" ;
+.
+bpaas:CloudServiceCloudService76384cd1-1b34-457f-8e93-5c67c847537f
+  rdf:type bpaas:CloudService ;
+  bpaas:cloudServiceHasDataStorageInGB "20" ;
+  bpaas:cloudServiceHasDataStorageInGB 20 ;
+  bpaas:cloudServiceHasPaymentPlan bpaas:NoPlan ;
+  rdfs:label "MyNewCs" ;
 .

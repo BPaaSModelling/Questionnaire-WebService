@@ -9,12 +9,13 @@ private String propertyURI;
 private String propertyLabel;
 private ArrayList<Answer> answerList;
 private String answerDatatype;
-private ArrayList<String> givenAnswerList;
+private ArrayList<Answer> givenAnswerList;
 private String searchNamespace;
 private ArrayList<Answer> comparisonOperationAnswer;
 private String comparisonAnswer;
 private String typeOfAnswer;
 private String domain;
+private String annotationRelation;
 
 public String getPropertyURI() {
 	return propertyURI;
@@ -56,11 +57,11 @@ public void setAnswerDatatype(String answerDatatype) {
 	this.answerDatatype = answerDatatype;
 }
 
-public ArrayList<String> getGivenAnswerList() {
+public ArrayList<Answer> getGivenAnswerList() {
 	return givenAnswerList;
 }
 
-public void setGivenAnswerList(ArrayList<String> givenAnswerList) {
+public void setGivenAnswerList(ArrayList<Answer> givenAnswerList) {
 	this.givenAnswerList = givenAnswerList;
 }
 
@@ -97,9 +98,17 @@ public void setDomain(String domain) {
 	this.domain = domain;
 }
 
+public String getAnnotationRelation() {
+	return annotationRelation;
+}
+
+public void setAnnotationRelation(String annotationRelation) {
+	this.annotationRelation = annotationRelation;
+}
+
 public CloudServiceElementModel() {
 	answerList = new ArrayList<Answer>();
-	givenAnswerList = new ArrayList<String>();
+	givenAnswerList = new ArrayList<Answer>();
 	comparisonOperationAnswer = new ArrayList<Answer>();
 	
 	
