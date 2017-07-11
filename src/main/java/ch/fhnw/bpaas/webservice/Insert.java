@@ -95,6 +95,7 @@ public class Insert {
 		queryStr.append("?domain rdfs:label ?lblDomain .");
 		queryStr.append("}");
 		queryStr.append("}");
+		queryStr.append("ORDER BY ?domain ?field");
 
 		ResultSet results = ontology.query(queryStr);
 		//I query comparison operators only one time and I store them in a temp array
@@ -180,7 +181,13 @@ public class Insert {
 		CloudServiceModel csm = gson.fromJson(json, CloudServiceModel.class);
 		
 		String id = UUID.randomUUID().toString();
+		
+		//Here i remove all the elements (attributes) that does not have a valid value
+		csm.setProperties(removeEmptyElements(csm.getProperties()));
+		
+		//Here i set all the AnnotationRelation properties
 		csm.setProperties(addAnnotationRelations(csm.getProperties()));
+		
 		ParameterizedSparqlString querStr = new ParameterizedSparqlString();
 		
 		querStr.append("INSERT DATA{");
@@ -230,4 +237,21 @@ public class Insert {
 		
 		return elements;
 	}
+	
+	private ArrayList<CloudServiceElementModel> removeEmptyElements(ArrayList<CloudServiceElementModel> elements){
+	ArrayList<CloudServiceElementModel> temp = new ArrayList<CloudServiceElementModel>();
+	
+		for (int i = 0; i < elements.size(); i++){
+			if (elements.get(i).getGivenAnswerList().size() != 0){
+				if (elements.get(i).getGivenAnswerList().size() == 1 &&
+					!elements.get(i).getGivenAnswerList().get(0).getAnswerID().equals("")){
+					temp.add(elements.get(i));
+					//System.out.println("Validated - "+elements.get(i).getPropertyLabel());
+				}
+			}
+		}
+		
+		return temp;
+	}
+	
 }
