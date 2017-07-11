@@ -60,6 +60,14 @@ questiondata:Backup_retention_time_period
   questionnaire:questionHasAnswers bpaas:up_to_half_year ;
   rdfs:label "Backup retention time period" ;
 .
+questiondata:CloudService_Physical_ID
+  rdf:type questionnaire:CloudServiceElement ;
+  rdf:type questionnaire:ValueInsert ;
+  questionnaire:cloudServiceElementHasCloudServiceDomain questiondata:General ;
+  questionnaire:questionHasAnnotationRelation bpaas:cloudServiceHasPhysicalID ;
+  questionnaire:valueInsertAnswerTypeHasDatatype xsd:string ;
+  rdfs:label "Cloud service Physical ID" ;
+.
 questiondata:DataEncryptionLevelHigh
   rdf:type questionnaire:Answer ;
   rdfs:label "Data Encryption Level High" ;
@@ -153,6 +161,10 @@ questiondata:FileUpload_Video_MP4
 questiondata:Functional
   rdf:type questionnaire:CloudServiceDomain ;
   rdfs:label "Functional" ;
+.
+questiondata:General
+  rdf:type questionnaire:CloudServiceDomain ;
+  rdfs:label "General" ;
 .
 questiondata:How_long_should_the_log_file_be_available_for
   rdf:type questionnaire:NotSortedYet ;
