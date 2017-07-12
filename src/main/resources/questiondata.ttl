@@ -222,8 +222,8 @@ questiondata:Monthly_downtime_in_minutes
   rdf:type questionnaire:ValueInsert ;
   questionnaire:cloudServiceElementHasCloudServiceDomain questiondata:Performance ;
   questionnaire:questionHasAnnotationRelation bpaas:cloudServiceHasAvailabilityInPercent ;
-  questionnaire:valueInsertAnswerTypeHasDatatype xsd:integer ;
-  rdfs:label "Monthly downtime in minutes" ;
+  questionnaire:valueInsertAnswerTypeHasDatatype xsd:double ;
+  rdfs:label "Availability in Percent" ;
 .
 questiondata:No
   rdf:type questionnaire:Answer ;

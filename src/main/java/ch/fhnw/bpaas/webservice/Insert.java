@@ -242,7 +242,12 @@ public class Insert {
 	ArrayList<CloudServiceElementModel> temp = new ArrayList<CloudServiceElementModel>();
 	
 		for (int i = 0; i < elements.size(); i++){
-			if (elements.get(i).getGivenAnswerList().size() != 0){
+			if (elements.get(i).getTypeOfAnswer().equals(GlobalVariables.ANSWERTYPE_VALUEINSERT) &&
+					elements.get(i).getComparisonAnswer() != null &&
+					!elements.get(i).getComparisonAnswer().trim().equals("")){
+				temp.add(elements.get(i));
+			}
+			else if (elements.get(i).getGivenAnswerList().size() != 0){
 				if (elements.get(i).getGivenAnswerList().size() == 1 &&
 					!elements.get(i).getGivenAnswerList().get(0).getAnswerID().equals("")){
 					temp.add(elements.get(i));
