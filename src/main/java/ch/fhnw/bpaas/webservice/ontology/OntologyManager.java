@@ -16,6 +16,10 @@ import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.update.UpdateAction;
+import org.apache.jena.update.UpdateExecutionFactory;
+import org.apache.jena.update.UpdateFactory;
+import org.apache.jena.update.UpdateProcessor;
+import org.apache.jena.update.UpdateRequest;
 
 import ch.fhnw.bpaas.webservice.persistence.GlobalVariables;
 import ch.fhnw.bpaas.webservice.persistence.RuleParser;
@@ -23,8 +27,13 @@ import ch.fhnw.bpaas.webservice.persistence.RuleParser;
 public final class OntologyManager {
 
 	private static OntologyManager INSTANCE;
-
+	private boolean localOntology = true;
 	private Model rdfModel;
+	
+	private static String TRIPLESTOREENDPOINT 	= "http://localhost:3030/questionnaire";
+	private static String UPDATEENDPOINT 		= TRIPLESTOREENDPOINT + "/update";
+	private static String QUERYENDPOINT			= TRIPLESTOREENDPOINT + "/query";
+	private static String READENDPOINT			= TRIPLESTOREENDPOINT + "/get";
 
 	public static synchronized OntologyManager getInstance() {
 		if (INSTANCE == null) {
@@ -34,11 +43,14 @@ public final class OntologyManager {
 	}
 
 	public OntologyManager() {
+		
 		rdfModel = ModelFactory.createDefaultModel();
 		setNamespaces(rdfModel);
 		loadOntologyiesToModel();
 		applyReasoningRulesToMainModel(GlobalVariables.REASONING_RULESET);
+		if (localOntology){
 		printModel(rdfModel, GlobalVariables.LOG_01_AFTER_REASONING);
+		}
 	}
 
 	private void applyReasoningRulesToMainModel(String ruleFile) {
@@ -46,12 +58,19 @@ public final class OntologyManager {
 		try {
 			ruleSet = RuleParser.parseRules(this.getClass().getClassLoader().getResourceAsStream(ruleFile));
 			for (String rule : ruleSet) {
-				rdfModel = performConstructRule(rdfModel, new ParameterizedSparqlString(rule));
+				if (localOntology){
+					rdfModel = performConstructRule(rdfModel, new ParameterizedSparqlString(rule));
+				} else {
+					performConstructRule(new ParameterizedSparqlString(rule));
+				}
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		printCurrentModel(GlobalVariables.MAIN_MODEL_EXPORT);
+		if (localOntology){
+			printCurrentModel(GlobalVariables.MAIN_MODEL_EXPORT);
+		}
+		
 	}
 
 	public Model applyReasoningRulesToTempModel(Model tempModel, ParameterizedSparqlString constructQuery) {
@@ -67,27 +86,25 @@ public final class OntologyManager {
 	}
 
 	private void loadOntologyiesToModel() {
-		for (ONTOLOGY ontology : ONTOLOGY.values()) {
-			// RDFDataMgr.read(rdfModel,
-			// this.getClass().getClassLoader().getResourceAsStream(ontology.getLoadURL()),
-			// Lang.TTL);
-			ONTOLOGY temp = ontology;
-			try {
-				System.out.println("load: " + temp.getLoadURL());
-				rdfModel.read(temp.getLoadURL(), temp.getFormat());
-			} catch (Exception e) {
-				e.printStackTrace();
-				System.err.println("error loading " +temp.getLoadURL());
+		if (localOntology){
+			for (ONTOLOGY ontology : ONTOLOGY.values()) {
+				// RDFDataMgr.read(rdfModel,
+				// this.getClass().getClassLoader().getResourceAsStream(ontology.getLoadURL()),
+				// Lang.TTL);
+				ONTOLOGY temp = ontology;
+				try {
+					System.out.println("load: " + temp.getLoadURL());
+					rdfModel.read(temp.getLoadURL(), temp.getFormat());
+				
+				} catch (Exception e) {
+					e.printStackTrace();
+					System.err.println("error while loading ontology to model");
+				}
 			}
+		} else {
+			
+			rdfModel.read(READENDPOINT);
 		}
-	}
-
-	public ResultSet query(ParameterizedSparqlString queryStr) {
-		addNamespacesToQuery(queryStr);
-		System.out.println("***Performed query***\n" + queryStr.toString() + "***Performed query***\n");
-		Query query = QueryFactory.create(queryStr.toString());
-		QueryExecution qexec = QueryExecutionFactory.create(query, rdfModel);
-		return qexec.execSelect();
 		
 	}
 
@@ -98,14 +115,25 @@ public final class OntologyManager {
 	}
 
 	public Model performConstructRule(Model model, ParameterizedSparqlString query) {
+	
 		// System.out.println("### performConstructRule: " +query.toString());
 		Model temp = ModelFactory.createOntologyModel();
 		addNamespacesToQuery(query);
-		System.out.println("### performConstructRule: " + query.toString());
+		System.out.println("### local performConstructRule: " + query.toString());
 		QueryExecution qexec = QueryExecutionFactory.create(query.toString(), model);
 		temp = qexec.execConstruct();
 		model = model.union(temp);
 		return model;
+	}
+	
+	public void performConstructRule(ParameterizedSparqlString query) {
+		
+		// System.out.println("### performConstructRule: " +query.toString());
+		addNamespacesToQuery(query);
+		System.out.println("### online performConstructRule: " + query.toString());
+		QueryExecution qexec = QueryExecutionFactory.sparqlService(QUERYENDPOINT, query.toString());
+		qexec.execConstruct();
+
 	}
 
 	public void printModel(Model model, String fileName) {
@@ -125,6 +153,20 @@ public final class OntologyManager {
 		this.printModel(this.rdfModel, filename);
 	}
 
+	public ResultSet query(ParameterizedSparqlString queryStr) {
+		addNamespacesToQuery(queryStr);
+		System.out.println("***Performed query***\n" + queryStr.toString() + "***Performed query***\n");
+		Query query = QueryFactory.create(queryStr.toString());
+		QueryExecution qexec;
+		if (localOntology){
+			qexec = QueryExecutionFactory.create(query, rdfModel);
+		} else {
+			qexec = QueryExecutionFactory.sparqlService(QUERYENDPOINT, query);
+		}
+		
+		return qexec.execSelect();
+	}
+	
 	public ResultSet query(Model model, ParameterizedSparqlString queryStr) {
 		addNamespacesToQuery(queryStr);
 		System.out.println(queryStr.toString());
@@ -143,10 +185,25 @@ public final class OntologyManager {
 
 	public void insertQuery(ParameterizedSparqlString queryStr) {
 		addNamespacesToQuery(queryStr);
-		System.out.println(queryStr.toString());
-		printModel(rdfModel, "01_beforeInsert.txt");
-		UpdateAction.parseExecute(queryStr.toString(), rdfModel);
-		printModel(rdfModel, "02_afterInsert.txt");
+		if (localOntology){
+			System.out.println(queryStr.toString());
+			printModel(rdfModel, "01_beforeInsert.txt");
+			UpdateAction.parseExecute(queryStr.toString(), rdfModel);
+			printModel(rdfModel, "02_afterInsert.txt");
+		} else {
+			UpdateRequest update = UpdateFactory.create(queryStr.toString());
+			UpdateProcessor up = UpdateExecutionFactory.createRemote(update, UPDATEENDPOINT);
+			up.execute();
+		}
+	}
+	
+	public boolean isLocalOntology() {
+		return localOntology;
 	}
 
+	public static String getREADENDPOINT() {
+		return READENDPOINT;
+	}
+
+	
 }

@@ -95,6 +95,7 @@ public final class CloudServiceFinder {
 			QuerySolution soln = results.next();
 			map.add(new CloudServicePropery(soln.get("?x").toString(), soln.get("?y").toString()));
 		}
+		System.out.println("===============NUMBER OF PROPERTIES: "+ map.size()+" ====================");
 		return map;
 	}
 	
@@ -125,7 +126,10 @@ public final class CloudServiceFinder {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		ontology.printModel(tempModel, GlobalVariables.LOG_05_TEMPMODEL);
+		if (ontology.isLocalOntology()){
+			ontology.printModel(tempModel, GlobalVariables.LOG_05_TEMPMODEL);
+		}
+		
 	}
 
 	private void createTemporaryCloudServiceProfile() {
@@ -144,25 +148,35 @@ public final class CloudServiceFinder {
 				tempModel = ontology.applyReasoningRulesToTempModel(tempModel, constructQuery);
 			}
 		}
-		ontology.printModel(tempModel, GlobalVariables.LOG_03_TEMPMODEL_02);
+		if (ontology.isLocalOntology()){
+			ontology.printModel(tempModel, GlobalVariables.LOG_03_TEMPMODEL_02);
+		}
 	}
 
 	private void setupTempModelAndLoadNamespaceData() {
 		tempModel = ModelFactory.createDefaultModel();
 		ontology.setNamespaces(tempModel);
 		loadNamespaceContentsToModel();
-		ontology.printModel(tempModel, GlobalVariables.LOG_02_TEMPMODEL_01);
+		if (ontology.isLocalOntology()){
+			ontology.printModel(tempModel, GlobalVariables.LOG_02_TEMPMODEL_01);
+		}
 	}
 
 	private void loadNamespaceContentsToModel() {
-		System.out.println("loading: " +ONTOLOGY.questiondata.getLoadURL());
-		tempModel.read(ONTOLOGY.questiondata.getLoadURL(), ONTOLOGY.questiondata.getFormat());
-		
-		System.out.println("loading: " +ONTOLOGY.BPAAS.getLoadURL());
-		tempModel.read(ONTOLOGY.BPAAS.getLoadURL(), ONTOLOGY.BPAAS.getFormat());
-		
-		System.out.println("loading: " +ONTOLOGY.questionnaire.getLoadURL());
-		tempModel.read(ONTOLOGY.questionnaire.getLoadURL(), ONTOLOGY.questionnaire.getFormat());
+		if (ontology.isLocalOntology()){
+			System.out.println("loading: " +ONTOLOGY.questiondata.getLoadURL());
+			tempModel.read(ONTOLOGY.questiondata.getLoadURL(), ONTOLOGY.questiondata.getFormat());
+			
+			System.out.println("loading: " +ONTOLOGY.BPAAS.getLoadURL());
+			tempModel.read(ONTOLOGY.BPAAS.getLoadURL(), ONTOLOGY.BPAAS.getFormat());
+			
+			System.out.println("loading: " +ONTOLOGY.questionnaire.getLoadURL());
+			tempModel.read(ONTOLOGY.questionnaire.getLoadURL(), ONTOLOGY.questionnaire.getFormat());	
+		}
+		else {
+			tempModel.read(OntologyManager.getREADENDPOINT());
+		}
+
 	}
 
 	private Set<CloudService> performQueryOnRepositoryAndCreateCloudServiceResultSet(
