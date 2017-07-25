@@ -6,6 +6,7 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 import org.apache.jena.query.ParameterizedSparqlString;
+import org.apache.jena.query.QueryExecution;
 import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;
 import com.google.gson.Gson;
@@ -63,7 +64,9 @@ public class Search {
 		}
 		queryStr.append("}");
 		
-		ResultSet results = ontology.query(queryStr);
+		QueryExecution qexec = ontology.query(queryStr);
+		ResultSet results = qexec.execSelect();
+		
 		SearchResultsModel sr = new SearchResultsModel();
 		if (results.hasNext()) {
 			while (results.hasNext()) {
@@ -73,6 +76,7 @@ public class Search {
 		} else {
 			throw new NoResultsException("nore more results");
 		}
+		qexec.close();
 		return sr;
 	}
 
@@ -89,7 +93,9 @@ public class Search {
 		}
 		queryStr.append("}");
 
-		ResultSet results = ontology.query(queryStr);
+		QueryExecution qexec = ontology.query(queryStr);
+		ResultSet results = qexec.execSelect();
+		
 		SearchResultsModel sr = new SearchResultsModel();
 		if (results.hasNext()) {
 			while (results.hasNext()) {
@@ -99,6 +105,7 @@ public class Search {
 		} else {
 			throw new NoResultsException("nore more results");
 		}
+		qexec.close();
 		return sr;
 	}
 

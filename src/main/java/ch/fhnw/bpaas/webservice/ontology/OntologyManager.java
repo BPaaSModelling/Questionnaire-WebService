@@ -27,7 +27,7 @@ import ch.fhnw.bpaas.webservice.persistence.RuleParser;
 public final class OntologyManager {
 
 	private static OntologyManager INSTANCE;
-	private boolean localOntology = true;
+	private boolean localOntology = false;
 	private Model rdfModel;
 	
 	private static String TRIPLESTOREENDPOINT 	= "http://localhost:3030/questionnaire";
@@ -133,7 +133,7 @@ public final class OntologyManager {
 		System.out.println("### online performConstructRule: " + query.toString());
 		QueryExecution qexec = QueryExecutionFactory.sparqlService(QUERYENDPOINT, query.toString());
 		qexec.execConstruct();
-
+		qexec.close();
 	}
 
 	public void printModel(Model model, String fileName) {
@@ -153,7 +153,7 @@ public final class OntologyManager {
 		this.printModel(this.rdfModel, filename);
 	}
 
-	public ResultSet query(ParameterizedSparqlString queryStr) {
+	public QueryExecution query(ParameterizedSparqlString queryStr) {
 		addNamespacesToQuery(queryStr);
 		System.out.println("***Performed query***\n" + queryStr.toString() + "***Performed query***\n");
 		Query query = QueryFactory.create(queryStr.toString());
@@ -163,8 +163,8 @@ public final class OntologyManager {
 		} else {
 			qexec = QueryExecutionFactory.sparqlService(QUERYENDPOINT, query);
 		}
-		
-		return qexec.execSelect();
+		return qexec;
+		//return qexec.execSelect();
 	}
 	
 	public ResultSet query(Model model, ParameterizedSparqlString queryStr) {

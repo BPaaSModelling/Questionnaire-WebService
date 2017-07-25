@@ -8,6 +8,7 @@ import java.util.Set;
 import java.util.UUID;
 
 import org.apache.jena.query.ParameterizedSparqlString;
+import org.apache.jena.query.QueryExecution;
 import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;
 import org.apache.jena.rdf.model.Model;
@@ -181,7 +182,8 @@ public final class CloudServiceFinder {
 
 	private Set<CloudService> performQueryOnRepositoryAndCreateCloudServiceResultSet(
 			ParameterizedSparqlString query) {
-		ResultSet results = ontology.query(query);
+		QueryExecution qexec = ontology.query(query);
+		ResultSet results = qexec.execSelect();
 
 		Set<CloudService> csrs = new HashSet<CloudService>();
 
@@ -189,6 +191,7 @@ public final class CloudServiceFinder {
 			QuerySolution soln = results.next();
 			csrs.add(new CloudService(soln.get("?cserviceID").toString(), soln.get("?label").toString()));
 		}
+		qexec.close();
 		return csrs;
 	}
 	

@@ -13,6 +13,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 import org.apache.jena.query.ParameterizedSparqlString;
+import org.apache.jena.query.QueryExecution;
 import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;
 import com.google.gson.Gson;
@@ -93,7 +94,9 @@ public class Questionnaire {
 		queryStr.append("<" +GlobalVariables.DOMAIN_SELECTION_QUESTION +"> questionnaire:questionHasDomainAnswer ?answerID .");
 		queryStr.append("}");
 		
-		ResultSet results = ontology.query(queryStr);
+		QueryExecution qexec = ontology.query(queryStr);
+		ResultSet results = qexec.execSelect();
+		
 		int result = -1;
 		while (results.hasNext()) {
 			QuerySolution soln = results.next();
@@ -101,7 +104,7 @@ public class Questionnaire {
 		}
 		
 		System.out.println("##### CHECK for end " +result +"::" +completedQuestionDomainList.size());
-		
+		qexec.close();
 		return result==completedQuestionDomainList.size();
 	}
 
@@ -154,7 +157,8 @@ public class Questionnaire {
 		queryStr.append("}");
 		
 		queryStr.append("}");
-		ResultSet results = ontology.query(queryStr);
+		QueryExecution qexec = ontology.query(queryStr);
+		ResultSet results = qexec.execSelect();
 
 		QuestionnaireItem qi = new QuestionnaireItem();
 		
@@ -176,6 +180,7 @@ public class Questionnaire {
 			}
 		}
 		System.out.println("###################before sending ****" +qi.toString());
+		qexec.close();
 		return qi;
 	}
 	
@@ -188,7 +193,8 @@ public class Questionnaire {
 		queryStr.append("?operation rdfs:label ?label .");
 		queryStr.append("}");
 		
-		ResultSet results = ontology.query(queryStr);
+		QueryExecution qexec = ontology.query(queryStr);
+		ResultSet results = qexec.execSelect();
 		
 		Set<Answer> comparisonOps = new HashSet<Answer>();
 
@@ -196,7 +202,7 @@ public class Questionnaire {
 			QuerySolution soln = results.next();
 			comparisonOps.add(new Answer(soln.get("?operation").toString(), soln.get("?label").toString()));
 		}
-		
+		qexec.close();
 		return comparisonOps;
 	}
 
@@ -270,9 +276,11 @@ public class Questionnaire {
 		queryStr.append("}");
 		
 		
-		ResultSet results = ontology.query(queryStr);
+		QueryExecution qexec = ontology.query(queryStr);
+		ResultSet results = qexec.execSelect();
 		HashMap<String, ArrayList<String>> resultMap = new HashMap<String, ArrayList<String>>();
 		if(!results.hasNext()){
+			qexec.close();
 			throw new NoDomainQuestionLeftException("all domain questions have been answerd; asking for new domain");
 		}else{
 			
@@ -293,6 +301,7 @@ public class Questionnaire {
 				
 				resultMap.get(key).add(value);
 			}
+			qexec.close();
 			return resultMap;
 		}
 	}

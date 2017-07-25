@@ -13,6 +13,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
 import org.apache.jena.query.ParameterizedSparqlString;
+import org.apache.jena.query.QueryExecution;
 import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;
 import org.apache.jena.rdf.model.Model;
@@ -97,7 +98,8 @@ public class Insert {
 		queryStr.append("}");
 		queryStr.append("ORDER BY ?domain ?field");
 
-		ResultSet results = ontology.query(queryStr);
+		QueryExecution qexec = ontology.query(queryStr);
+		ResultSet results = qexec.execSelect();
 		//I query comparison operators only one time and I store them in a temp array
 		ArrayList<Answer> comparisonOperators;
 		comparisonOperators = new ArrayList<Answer>(getComparisonOperations());
@@ -129,6 +131,7 @@ public class Insert {
 		} else {
 			throw new NoResultsException("nore more results");
 		}
+		qexec.close();
 		return allCloudServiceElements;
 	}
 	
@@ -140,7 +143,8 @@ public class Insert {
 		queryStr.append("?operation rdfs:label ?label .");
 		queryStr.append("}");
 		
-		ResultSet results = ontology.query(queryStr);
+		QueryExecution qexec = ontology.query(queryStr);
+		ResultSet results = qexec.execSelect();
 		
 		Set<Answer> comparisonOps = new HashSet<Answer>();
 
@@ -148,7 +152,7 @@ public class Insert {
 			QuerySolution soln = results.next();
 			comparisonOps.add(new Answer(soln.get("?operation").toString(), soln.get("?label").toString()));
 		}
-		
+		qexec.close();
 		return comparisonOps;
 	}
 	
@@ -159,7 +163,8 @@ public class Insert {
 		queryStr.append("?answer rdfs:label ?label .");
 		queryStr.append("}");
 		
-		ResultSet results = ontology.query(queryStr);
+		QueryExecution qexec = ontology.query(queryStr);
+		ResultSet results = qexec.execSelect();
 		
 		Set<Answer> answers = new HashSet<Answer>();
 
@@ -167,7 +172,7 @@ public class Insert {
 			QuerySolution soln = results.next();
 			answers.add(new Answer(soln.get("?answer").toString(), soln.get("?label").toString()));
 		}
-		
+		qexec.close();
 		return answers;
 	}
 	
@@ -224,7 +229,8 @@ public class Insert {
 		queryStr.append("?element questionnaire:questionHasAnnotationRelation ?relation .");
 		queryStr.append("}");
 		
-		ResultSet results = ontology.query(queryStr);
+		QueryExecution qexec = ontology.query(queryStr);
+		ResultSet results = qexec.execSelect();
 
 		while (results.hasNext()) {
 			QuerySolution soln = results.next();
@@ -234,7 +240,7 @@ public class Insert {
 				}
 			}
 		}
-		
+		qexec.close();
 		return elements;
 	}
 	
