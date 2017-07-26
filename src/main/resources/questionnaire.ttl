@@ -194,6 +194,12 @@ questionnaire:searchSelectionHasSearchNamespace
   rdfs:label "questionHasSearchNamespace" ;
   rdfs:range owl:Thing ;
 .
+questionnaire:searchSelectionOnClassesInsteadOfInstances
+  rdf:type rdf:Property ;
+  rdfs:domain questionnaire:SearchSelection ;
+  rdfs:label "search selection on classes" ;
+  rdfs:range xsd:boolean ;
+.
 questionnaire:valueInsertAnswerHasComparisonPossibilities
   rdf:type rdf:Property ;
   rdfs:domain questionnaire:ValueInsert ;

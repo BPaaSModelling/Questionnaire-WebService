@@ -156,6 +156,10 @@ public class Questionnaire {
 		queryStr.append(questionURI +" questionnaire:searchSelectionHasSearchNamespace ?sns .");
 		queryStr.append("}");
 		
+		queryStr.append("OPTIONAL{");
+		queryStr.append(questionURI +" questionnaire:searchSelectionOnClassesInsteadOfInstances ?searchType .");
+		queryStr.append("}");
+		
 		queryStr.append("}");
 		QueryExecution qexec = ontology.query(queryStr);
 		ResultSet results = qexec.execSelect();
@@ -172,6 +176,13 @@ public class Questionnaire {
 			
 			if(qi.getAnswerType().equals(GlobalVariables.ANSWERTYPE_SEARCH_SELECTION)){
 				qi.setAnswerSearchNamespace(soln.get("?sns").toString());
+				if (soln.get("?searchType").toString() == null ||
+						soln.get("?searchType").toString().equals("") ||
+						soln.get("?searchType").toString().equals(GlobalVariables.BOOLEAN_FALSE_URI)){
+						qi.setSearchOnClassesInsteadOfInstances(false);
+					} else {
+						qi.setSearchOnClassesInsteadOfInstances(true);
+					}
 			}else if(qi.getAnswerType().equals(GlobalVariables.ANSWERTYPE_VALUEINSERT)){
 				qi.setAnswerDatatype(soln.get("?answerDatatype").toString());
 				qi.setValueInsertComparisonOperationAnswers(getComparisonOperations());

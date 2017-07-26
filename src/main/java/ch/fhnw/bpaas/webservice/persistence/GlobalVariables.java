@@ -28,6 +28,7 @@ public class GlobalVariables {
 	public static final String OPERATION_LESSTHAN = "http://ikm-group.ch/archiMEO/questionnaire#LessThan";
 	public static final String OPERATION_EQUALS = "http://ikm-group.ch/archiMEO/questionnaire#Equals";
 	public static final String OPERATION_NOTEQUAL = "http://ikm-group.ch/archiMEO/questionnaire#NotEqual";
-	
 
+	public static final String BOOLEAN_TRUE_URI = "true^^http://www.w3.org/2001/XMLSchema#boolean";
+	public static final String BOOLEAN_FALSE_URI = "false^^http://www.w3.org/2001/XMLSchema#boolean";
 }

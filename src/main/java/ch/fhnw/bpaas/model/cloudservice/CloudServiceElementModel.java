@@ -11,11 +11,20 @@ private ArrayList<Answer> answerList;
 private String answerDatatype;
 private ArrayList<Answer> givenAnswerList;
 private String searchNamespace;
+private Boolean searchOnClassesInsteadOfInstances;
 private ArrayList<Answer> comparisonOperationAnswer;
 private String comparisonAnswer;
 private String typeOfAnswer;
 private String domain;
 private String annotationRelation;
+
+public Boolean getSearchOnClassesInsteadOfInstances() {
+	return searchOnClassesInsteadOfInstances;
+}
+
+public void setSearchOnClassesInsteadOfInstances(Boolean searchOnClassesInsteadOfInstances) {
+	this.searchOnClassesInsteadOfInstances = searchOnClassesInsteadOfInstances;
+}
 
 public String getPropertyURI() {
 	return propertyURI;

@@ -23,11 +23,11 @@ public class Search {
 	private OntologyManager ontology = OntologyManager.getInstance();
 
 	@GET
-	public Response search(@QueryParam("ns") String namespace, @QueryParam("search") String search) {
+	public Response search(@QueryParam("ns") String namespace, @QueryParam("search") String search, @QueryParam("search_for_classes") String search_for_classes) {
 		System.out.println("\n####################<start>####################");
-		System.out.println("/search received values: ns " + namespace + " :: " + search);
+		System.out.println("/search received values: ns " + namespace + " :: " + search + " :: " + search_for_classes);
 		System.out.println("####################<end>####################");
-
+		 
 		// split keywords spaces spaces
 		String[] searchItems = search.split("\\s+");
 
@@ -36,7 +36,12 @@ public class Search {
 			if (namespace.contains(NAMESPACE.APQC.getURI())) {
 				searchResults = queryAPQC(namespace, searchItems);
 			} else {
-				searchResults = query(namespace, searchItems);
+				if (Boolean.valueOf(search_for_classes)){
+					searchResults = queryClasses(namespace, searchItems);
+				}else{
+					searchResults = queryInstances(namespace, searchItems);
+				}
+				
 			}
 		} catch (NoResultsException e) {
 			e.printStackTrace();
@@ -80,7 +85,7 @@ public class Search {
 		return sr;
 	}
 
-	private SearchResultsModel query(String namespace, String[] searchItems) throws NoResultsException {
+	private SearchResultsModel queryClasses(String namespace, String[] searchItems) throws NoResultsException {
 		ParameterizedSparqlString queryStr = new ParameterizedSparqlString();
 
 		queryStr.append("SELECT ?subclass ?label WHERE {");
@@ -101,6 +106,35 @@ public class Search {
 			while (results.hasNext()) {
 				QuerySolution soln = results.next();
 				sr.add(new SearchResult(soln.get("?subclass").toString(), soln.get("?label").toString()));
+			}
+		} else {
+			throw new NoResultsException("nore more results");
+		}
+		qexec.close();
+		return sr;
+	}
+	
+	private SearchResultsModel queryInstances(String namespace, String[] searchItems) throws NoResultsException {
+		ParameterizedSparqlString queryStr = new ParameterizedSparqlString();
+
+		queryStr.append("SELECT ?instance ?label WHERE {");
+		queryStr.append("?instance rdf:type* <" + namespace + "> .");
+		queryStr.append("?instance rdfs:label ?label .");
+		queryStr.append("FILTER(?instance!=<" + namespace +">)");
+
+		for (String param : searchItems) {
+			queryStr.append("FILTER regex(str(?label), \"" + param + "\", \"i\")");
+		}
+		queryStr.append("}");
+
+		QueryExecution qexec = ontology.query(queryStr);
+		ResultSet results = qexec.execSelect();
+		
+		SearchResultsModel sr = new SearchResultsModel();
+		if (results.hasNext()) {
+			while (results.hasNext()) {
+				QuerySolution soln = results.next();
+				sr.add(new SearchResult(soln.get("?instance").toString(), soln.get("?label").toString()));
 			}
 		} else {
 			throw new NoResultsException("nore more results");

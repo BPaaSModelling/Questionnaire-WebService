@@ -13,6 +13,7 @@ public class QuestionnaireItem {
 	private String answerDatatype;
 	private int questionID;
 	private String searchNamespace;
+	private Boolean searchOnClassesInsteadOfInstances;
 	private Set<Answer> comparisonOperationAnswers;
 	private String comparisonAnswer;
 	
@@ -58,6 +59,15 @@ public class QuestionnaireItem {
 		this.answerList = answerList;
 	}
 	
+	
+	public Boolean getSearchOnClassesInsteadOfInstances() {
+		return searchOnClassesInsteadOfInstances;
+	}
+
+	public void setSearchOnClassesInsteadOfInstances(Boolean searchOnClassesInsteadOfInstances) {
+		this.searchOnClassesInsteadOfInstances = searchOnClassesInsteadOfInstances;
+	}
+
 	public String toString(){
 		StringBuilder sb = new StringBuilder();
 		sb.append("==QuestionnaireItem==\n");

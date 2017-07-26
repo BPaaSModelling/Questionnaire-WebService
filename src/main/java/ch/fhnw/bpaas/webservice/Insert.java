@@ -80,7 +80,7 @@ public class Insert {
 		ParameterizedSparqlString queryStr = new ParameterizedSparqlString();
 		ArrayList<CloudServiceElementModel> allCloudServiceElements = new ArrayList<CloudServiceElementModel>();
 		
-		queryStr.append("SELECT ?field ?label ?qType ?searchnamespace ?datatype ?lblDomain WHERE {");
+		queryStr.append("SELECT ?field ?label ?qType ?searchnamespace ?searchType ?datatype ?lblDomain WHERE {");
 		queryStr.append("?field rdf:type* " + class_type + " .");
 		queryStr.append("?field rdfs:label ?label .");
 		queryStr.append("?field rdf:type ?qType .");
@@ -94,6 +94,9 @@ public class Insert {
 		queryStr.append("OPTIONAL{");
 		queryStr.append("?field questionnaire:cloudServiceElementHasCloudServiceDomain ?domain .");
 		queryStr.append("?domain rdfs:label ?lblDomain .");
+		queryStr.append("}");
+		queryStr.append("OPTIONAL{");
+		queryStr.append("?field questionnaire:searchSelectionOnClassesInsteadOfInstances ?searchType .");
 		queryStr.append("}");
 		queryStr.append("}");
 		queryStr.append("ORDER BY ?domain ?field");
@@ -119,6 +122,16 @@ public class Insert {
 				}else if (soln.get("?qType").toString().equals(GlobalVariables.ANSWERTYPE_SEARCH_SELECTION)){
 					//Call for the namespace
 					tempCSElement.setSearchNamespace(soln.get("?searchnamespace").toString());
+					System.out.println("=====================SEARCHTYPE: " + soln.get("?searchType"));
+					//Call for the searchType (Classes of Instances)
+					if (soln.get("?searchType").toString() == null ||
+						soln.get("?searchType").toString().equals("") ||
+						soln.get("?searchType").toString().equals(GlobalVariables.BOOLEAN_FALSE_URI)){
+						tempCSElement.setSearchOnClassesInsteadOfInstances(false);
+					} else {
+						tempCSElement.setSearchOnClassesInsteadOfInstances(true);
+					}
+					
 				}else if (soln.get("?qType").toString().equals(GlobalVariables.ANSWERTYPE_VALUEINSERT)){
 					//Call for the Datatype
 					tempCSElement.setAnswerDatatype(soln.get("?datatype").toString());

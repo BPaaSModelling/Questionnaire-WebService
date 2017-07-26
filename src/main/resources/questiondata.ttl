@@ -21,6 +21,7 @@ questiondata:APQC_category_that_reflect_the_functional_requirement
   questionnaire:cloudServiceElementHasCloudServiceDomain questiondata:Functional ;
   questionnaire:questionHasAnnotationRelation bpaas:cloudServiceHasAPQC ;
   questionnaire:searchSelectionHasSearchNamespace <http://ikm-group.ch/archimeo/apqc#AmericanProductivityAndQualityCenter> ;
+  questionnaire:searchSelectionOnClassesInsteadOfInstances "true"^^xsd:boolean ;
   rdfs:label "APQC category that reflect the functional requirement" ;
 .
 questiondata:Action_does_reflect_the_functional_requirement
@@ -29,6 +30,7 @@ questiondata:Action_does_reflect_the_functional_requirement
   questionnaire:cloudServiceElementHasCloudServiceDomain questiondata:Functional ;
   questionnaire:questionHasAnnotationRelation bpaas:cloudServiceHasAction ;
   questionnaire:searchSelectionHasSearchNamespace <http://ikm-group.ch/archimeo/fbpdo#Action> ;
+  questionnaire:searchSelectionOnClassesInsteadOfInstances "true"^^xsd:boolean ;
   rdfs:label "Action that reflect the functional requirement" ;
 .
 questiondata:Archive_the_log_when_full_and_do_not_overwrite_events
@@ -132,6 +134,7 @@ questiondata:Data_location
   questionnaire:cloudServiceElementHasCloudServiceDomain questiondata:Security ;
   questionnaire:questionHasAnnotationRelation bpaas:cloudServiceHasProcessedDataLocation ;
   questionnaire:searchSelectionHasSearchNamespace bpaas:PhysicalLocation ;
+  questionnaire:searchSelectionOnClassesInsteadOfInstances "true"^^xsd:boolean ;
   rdfs:label "Data location" ;
 .
 questiondata:Do_not_care
@@ -255,6 +258,7 @@ questiondata:Object_does_reflect_the_functional_requirement
   questionnaire:cloudServiceElementHasCloudServiceDomain questiondata:Functional ;
   questionnaire:questionHasAnnotationRelation bpaas:cloudServiceHasObject ;
   questionnaire:searchSelectionHasSearchNamespace <http://ikm-group.ch/archimeo/fbpdo#Object> ;
+  questionnaire:searchSelectionOnClassesInsteadOfInstances "true"^^xsd:boolean ;
   rdfs:label "Object that reflect the functional requirement" ;
 .
 questiondata:Overwrite_events_as_needed
@@ -555,6 +559,7 @@ questiondata:What_is_your_favorite_data_location
   rdf:type questionnaire:DataSecurity ;
   rdf:type questionnaire:SearchSelection ;
   questionnaire:searchSelectionHasSearchNamespace bpaas:PhysicalLocation ;
+  questionnaire:searchSelectionOnClassesInsteadOfInstances "true"^^xsd:boolean ;
   rdfs:label "What is your favorite data location?" ;
 .
 questiondata:What_is_your_favorite_response_time_level
@@ -614,18 +619,21 @@ questiondata:Which_APQC_category_does_reflect_the_functional_requirement_you_wan
   rdf:type questionnaire:Functional ;
   rdf:type questionnaire:SearchSelection ;
   questionnaire:searchSelectionHasSearchNamespace <http://ikm-group.ch/archimeo/apqc#AmericanProductivityAndQualityCenter> ;
+  questionnaire:searchSelectionOnClassesInsteadOfInstances "true"^^xsd:boolean ;
   rdfs:label "Which APQC category does reflect the functional requirement you want to express?" ;
 .
 questiondata:Which_Action_does_reflect_the_functional_requirement_you_want_to_express
   rdf:type questionnaire:Functional ;
   rdf:type questionnaire:SearchSelection ;
   questionnaire:searchSelectionHasSearchNamespace <http://ikm-group.ch/archimeo/fbpdo#Action> ;
+  questionnaire:searchSelectionOnClassesInsteadOfInstances "true"^^xsd:boolean ;
   rdfs:label "Which Action does reflect the functional requirement you want to express?" ;
 .
 questiondata:Which_Object_does_reflect_the_functional_requirement_you_want_to_express
   rdf:type questionnaire:Functional ;
   rdf:type questionnaire:SearchSelection ;
   questionnaire:searchSelectionHasSearchNamespace <http://ikm-group.ch/archimeo/fbpdo#Object> ;
+  questionnaire:searchSelectionOnClassesInsteadOfInstances "true"^^xsd:boolean ;
   rdfs:label "Which Object does reflect the functional requirement you want to express?" ;
 .
 questiondata:Yes
