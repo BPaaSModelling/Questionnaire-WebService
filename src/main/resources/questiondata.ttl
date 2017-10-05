@@ -188,6 +188,14 @@ questiondata:How_many_times_should_the_process_be_executed
   questionnaire:valueInsertAnswerTypeHasDatatype xsd:integer ;
   rdfs:label "How many times should the process be executed?" ;
 .
+questiondata:How_would_you_like_to_store_your_documents
+  rdf:type questionnaire:DataSecurity ;
+  rdf:type questionnaire:SingleSelection ;
+  questionnaire:questionHasAnnotationRelation bpaas:cloudServiceHasDocumentManagementSystem ;
+  questionnaire:questionHasAnswers bpaas:File_System ;
+  questionnaire:questionHasAnswers bpaas:Storage_Service ;
+  rdfs:label "How would you like to store your documents?" ;
+.
 questiondata:LogAccessFor1Month
   rdf:type questionnaire:Answer ;
   rdfs:label "Log access for1Month" ;

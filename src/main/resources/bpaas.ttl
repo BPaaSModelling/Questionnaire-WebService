@@ -232,6 +232,11 @@ bpaas:Do_not_overwrite_events
   rdf:type bpaas:LogFileRetentionPolicy ;
   rdfs:label "do not overwrite events" ;
 .
+bpaas:DocumentManagementSystem
+  rdf:type owl:Class ;
+  rdfs:label "cs a" ;
+  rdfs:subClassOf bpaas:DataManagement ;
+.
 bpaas:EncryptionType
   rdf:type owl:Class ;
   rdfs:label "EncryptionType" ;
@@ -241,6 +246,10 @@ bpaas:Europe
   rdf:type owl:Class ;
   rdfs:label "Europe" ;
   rdfs:subClassOf bpaas:Continent ;
+.
+bpaas:File_System
+  rdf:type bpaas:DocumentManagementSystem ;
+  rdfs:label "Local (File system)" ;
 .
 bpaas:FreeofCharge
   rdf:type bpaas:PaymentPlan ;
@@ -580,6 +589,10 @@ bpaas:SouthAmerica
 bpaas:StoragePeriodInMonths
   rdf:type owl:DatatypeProperty ;
   rdfs:range xsd:integer ;
+.
+bpaas:Storage_Service
+  rdf:type bpaas:DocumentManagementSystem ;
+  rdfs:label "Storage Service" ;
 .
 bpaas:StoredData
   rdf:type owl:Class ;
@@ -954,6 +967,11 @@ bpaas:cloudServiceHasDescription
   rdfs:label "CloudServiceHasDescription" ;
   rdfs:label "cloudServiceHasDescription" ;
   rdfs:range xsd:string ;
+.
+bpaas:cloudServiceHasDocumentManagementSystem
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain bpaas:CloudService ;
+  rdfs:range bpaas:DocumentManagementSystem ;
 .
 bpaas:cloudServiceHasEncryptionType
   rdf:type owl:ObjectProperty ;

@@ -113,6 +113,7 @@ bdata:Ninja_Invoicing_System
   bpaas:cloudServiceHasBackupRetentionTime bpaas:up_to_7_days ;
   bpaas:cloudServiceHasDataStorageInGB 5 ;
   bpaas:cloudServiceHasDescription "https://www.invoiceninja.com/" ;
+  bpaas:cloudServiceHasDocumentManagementSystem bpaas:File_System ;
   bpaas:cloudServiceHasEncryptionType bpaas:Sha256 ;
   bpaas:cloudServiceHasExecutionCapacity 20 ;
   bpaas:cloudServiceHasObject fbpdo:Invoice ;
