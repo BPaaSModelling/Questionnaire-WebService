@@ -531,27 +531,24 @@ questiondata:What_could_be_uploaded
   rdfs:label "What could be uploaded" ;
 .
 questiondata:What_is_you_favorite_restore_time_level
-  rdf:type questionnaire:DataSecurity ;
   rdf:type questionnaire:SingleSelection ;
   questionnaire:questionHasAnnotationRelation bpaas:cloudServiceHasBackupRestoreInGBPerHour ;
   questionnaire:questionHasAnswers questiondata:None ;
   questionnaire:questionHasAnswers questiondata:RestoreTimeHigh ;
   questionnaire:questionHasAnswers questiondata:RestoreTimeLow ;
   questionnaire:questionHasAnswers questiondata:RestoreTimeMedium ;
-  rdfs:label " What is you favorite restore time period?" ;
+  rdfs:label "--What is you favorite restore time period?" ;
 .
 questiondata:What_is_your_favorite_backup_frequency_period
-  rdf:type questionnaire:DataSecurity ;
   rdf:type questionnaire:SingleSelection ;
   questionnaire:questionHasAnnotationRelation bpaas:cloudServiceHasBackupFrequency ;
   questionnaire:questionHasAnswers bpaas:daily ;
   questionnaire:questionHasAnswers bpaas:monthly ;
   questionnaire:questionHasAnswers bpaas:weekly ;
   questionnaire:questionHasAnswers bpaas:yearly ;
-  rdfs:label "What is your favorite backup frequency period?" ;
+  rdfs:label "--What is your favorite backup frequency period?" ;
 .
 questiondata:What_is_your_favorite_backup_retention_time_period
-  rdf:type questionnaire:DataSecurity ;
   rdf:type questionnaire:SingleSelection ;
   questionnaire:questionHasAnnotationRelation bpaas:cloudServiceHasBackupRetentionTime ;
   questionnaire:questionHasAnswers bpaas:up_to_1_day ;
@@ -561,7 +558,7 @@ questiondata:What_is_your_favorite_backup_retention_time_period
   questionnaire:questionHasAnswers bpaas:up_to_2_weeks ;
   questionnaire:questionHasAnswers bpaas:up_to_7_days ;
   questionnaire:questionHasAnswers bpaas:up_to_half_year ;
-  rdfs:label "What is your favorite backup retention time period?" ;
+  rdfs:label "--What is your favorite backup retention time period?" ;
 .
 questiondata:What_is_your_favorite_data_location
   rdf:type questionnaire:DataSecurity ;

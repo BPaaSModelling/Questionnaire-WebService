@@ -17,6 +17,19 @@
   owl:imports <http://ikm-group.ch/archimeo/bpaas> ;
   owl:versionInfo "Created with TopBraid Composer" ;
 .
+bdata:Dropbox
+  rdf:type bpaas:CloudService ;
+  bpaas:cloudServiceHasAPQC <http://ikm-group.ch/archimeo/apqc#9_2_2_3_Transmit_billing_data_to_customers_10796> ;
+  bpaas:cloudServiceHasAction fbpdo:Send ;
+  bpaas:cloudServiceHasAvailabilityInPercent "100"^^xsd:decimal ;
+  bpaas:cloudServiceHasDocumentManagementSystem bpaas:Storage_Service ;
+  bpaas:cloudServiceHasEncryptionType bpaas:Sha256 ;
+  bpaas:cloudServiceHasObject fbpdo:Invoice ;
+  bpaas:cloudServiceHasProcessedDataLocation bpaas:Asia ;
+  bpaas:cloudServiceHasProcessedDataLocation bpaas:Europe ;
+  bpaas:cloudServiceHasProcessedDataLocation bpaas:NorthAmerica ;
+  rdfs:label "Dropbox" ;
+.
 bdata:Gmail
   rdf:type bpaas:CloudService ;
   bpaas:cloudServiceHasAPQC <http://ikm-group.ch/archimeo/apqc#9_2_2_3_Transmit_billing_data_to_customers_10796> ;
@@ -80,7 +93,7 @@ bdata:Mathema_Document_Generator
   bpaas:cloudServiceHasBackupRestoreInGBPerHour 5 ;
   bpaas:cloudServiceHasBackupRetentionTime bpaas:up_to_2_month ;
   bpaas:cloudServiceHasDataStorageInGB 1 ;
-  bpaas:cloudServiceHasEncryptionType bpaas:Sha1 ;
+  bpaas:cloudServiceHasEncryptionType bpaas:Sha256 ;
   bpaas:cloudServiceHasExecutionCapacity 20 ;
   bpaas:cloudServiceHasPaymentPlan bpaas:MonthlyFee ;
   bpaas:cloudServiceHasPaymentPlan bpaas:TryFreeFirst ;
@@ -173,7 +186,7 @@ bdata:Open_Source_Billing
   bpaas:cloudServiceHasBackupRetentionTime bpaas:up_to_2_month ;
   bpaas:cloudServiceHasDataStorageInGB 1 ;
   bpaas:cloudServiceHasDescription "https://www.odoo.com/page/billing?utm_source=adwords&utm_medium=cpc&utm_campaign=en-adwordscpc-billing&gclid=Cj0KEQiA5bvEBRCM6vypnc7QgMkBEiQAUZftQGIOKS2kFdxrxzcGC2Cx-D8t-fkHs2KPYHGVNPe6sGIaAjrm8P8HAQ" ;
-  bpaas:cloudServiceHasEncryptionType bpaas:Sha1 ;
+  bpaas:cloudServiceHasEncryptionType bpaas:Sha256 ;
   bpaas:cloudServiceHasExecutionCapacity 20 ;
   bpaas:cloudServiceHasPaymentPlan bpaas:MonthlyFee ;
   bpaas:cloudServiceHasPaymentPlan bpaas:TryFreeFirst ;
@@ -204,7 +217,7 @@ bdata:Simple_Invoices
   bpaas:cloudServiceHasBackupRetentionTime bpaas:up_to_2_month ;
   bpaas:cloudServiceHasDataStorageInGB 10 ;
   bpaas:cloudServiceHasDescription "http://www.simpleinvoices.org/" ;
-  bpaas:cloudServiceHasEncryptionType bpaas:Sha1 ;
+  bpaas:cloudServiceHasEncryptionType bpaas:Sha256 ;
   bpaas:cloudServiceHasExecutionCapacity 20 ;
   bpaas:cloudServiceHasPaymentPlan bpaas:MonthlyFee ;
   bpaas:cloudServiceHasPaymentPlan bpaas:TryFreeFirst ;
@@ -219,6 +232,8 @@ bdata:Simple_Invoices
 .
 bdata:SugarCRM
   rdf:type bpaas:CloudService ;
+  bpaas:cloudServiceHasEncryptionType bpaas:Sha256 ;
+  bpaas:cloudServiceHasProcessedDataLocation bpaas:Europe ;
   rdfs:label "SugarCRM" ;
 .
 bdata:YMENS_CRM
@@ -235,6 +250,7 @@ bdata:YMENS_CRM
   bpaas:cloudServiceHasBackupRestoreInGBPerHour 50 ;
   bpaas:cloudServiceHasBackupRetentionTime bpaas:up_to_1_month ;
   bpaas:cloudServiceHasDataStorageInGB 10 ;
+  bpaas:cloudServiceHasDocumentManagementSystem bpaas:File_System ;
   bpaas:cloudServiceHasEncryptionType bpaas:Sha256 ;
   bpaas:cloudServiceHasExecutionCapacity "111"^^xsd:decimal ;
   bpaas:cloudServiceHasPaymentPlan bpaas:PrepaidAnnualPlan ;
@@ -263,7 +279,7 @@ bdata:Zoho_CRM
   bpaas:cloudServiceHasBackupRetentionTime bpaas:up_to_1_month ;
   bpaas:cloudServiceHasDataStorageInGB 5 ;
   bpaas:cloudServiceHasDescription "https://www.zoho.com/crm/?src=zoho" ;
-  bpaas:cloudServiceHasEncryptionType bpaas:Sha1 ;
+  bpaas:cloudServiceHasEncryptionType bpaas:Sha256 ;
   bpaas:cloudServiceHasExecutionCapacity 30 ;
   bpaas:cloudServiceHasPaymentPlan bpaas:MonthlyFee ;
   bpaas:cloudServiceHasPaymentPlan bpaas:PrepaidAnnualPlan ;
