@@ -3,14 +3,19 @@ package ch.fhnw.bpaas.webservice.ontology;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.List;
 
+import org.apache.jena.graph.Triple;
+import org.apache.jena.query.DatasetAccessor;
+import org.apache.jena.query.DatasetAccessorFactory;
 import org.apache.jena.query.ParameterizedSparqlString;
 import org.apache.jena.query.Query;
 import org.apache.jena.query.QueryExecution;
 import org.apache.jena.query.QueryExecutionFactory;
 import org.apache.jena.query.QueryFactory;
 import org.apache.jena.query.ResultSet;
+import org.apache.jena.query.Syntax;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.riot.Lang;
@@ -27,13 +32,14 @@ import ch.fhnw.bpaas.webservice.persistence.RuleParser;
 public final class OntologyManager {
 
 	private static OntologyManager INSTANCE;
-	private boolean localOntology = false;
+	private final boolean localOntology = false;
 	private Model rdfModel;
 	
 	private static String TRIPLESTOREENDPOINT 	= "http://localhost:3030/questionnaire";
 	private static String UPDATEENDPOINT 		= TRIPLESTOREENDPOINT + "/update";
 	private static String QUERYENDPOINT			= TRIPLESTOREENDPOINT + "/query";
 	private static String READENDPOINT			= TRIPLESTOREENDPOINT + "/get";
+	private static String DATAENDPOINT			= TRIPLESTOREENDPOINT + "/data";
 
 	public static synchronized OntologyManager getInstance() {
 		if (INSTANCE == null) {
@@ -76,7 +82,9 @@ public final class OntologyManager {
 	public Model applyReasoningRulesToTempModel(Model tempModel, ParameterizedSparqlString constructQuery) {
 		// System.out.println("### applyReasoningRulesToTempModel: "
 		// +constructQuery.toString());
+		
 		return performConstructRule(tempModel, constructQuery);
+		
 	}
 
 	public void setNamespaces(Model model) {
@@ -131,9 +139,18 @@ public final class OntologyManager {
 		// System.out.println("### performConstructRule: " +query.toString());
 		addNamespacesToQuery(query);
 		System.out.println("### online performConstructRule: " + query.toString());
-		QueryExecution qexec = QueryExecutionFactory.sparqlService(QUERYENDPOINT, query.toString());
-		qexec.execConstruct();
-		qexec.close();
+		//Query myQuery = QueryFactory.create(query.toString(), Syntax.syntaxARQ);
+		Query myQuery = QueryFactory.create(query.toString());
+		
+		QueryExecution qExec = QueryExecutionFactory.sparqlService(QUERYENDPOINT, myQuery);
+		Model temp = ModelFactory.createOntologyModel();
+		temp = qExec.execConstruct();
+		DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(DATAENDPOINT);
+	    accessor.add(temp);
+		qExec.close();
+		//QueryExecution qexec = QueryExecutionFactory.sparqlService(QUERYENDPOINT, query.toString());
+		//qexec.execConstruct();
+		//qexec.close();
 	}
 
 	public void printModel(Model model, String fileName) {

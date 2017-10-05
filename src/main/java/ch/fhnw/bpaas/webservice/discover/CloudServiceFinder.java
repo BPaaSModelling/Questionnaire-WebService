@@ -122,7 +122,12 @@ public final class CloudServiceFinder {
 			ruleSet = RuleParser.parseRules(
 					this.getClass().getClassLoader().getResourceAsStream(GlobalVariables.QUESTIONNAIRE_INTERPRETATION_RULESET));
 			for (String rule : ruleSet) {
-				tempModel = ontology.applyReasoningRulesToTempModel(tempModel, new ParameterizedSparqlString(rule));
+//				if (ontology.isLocalOntology()){
+					tempModel = ontology.applyReasoningRulesToTempModel(tempModel, new ParameterizedSparqlString(rule));
+//				} else {
+//					ontology.performConstructRule(new ParameterizedSparqlString(rule));
+//				}
+				
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -146,7 +151,12 @@ public final class CloudServiceFinder {
 		for (QuestionnaireItem item : questionnaire.getQuestionItemList()) {
 			for (String answer : item.getGivenAnswerList()) {
 				ParameterizedSparqlString constructQuery = generateAnswerTranslationConstructQuery(item, answer);
-				tempModel = ontology.applyReasoningRulesToTempModel(tempModel, constructQuery);
+				//if (ontology.isLocalOntology()){
+					tempModel = ontology.applyReasoningRulesToTempModel(tempModel, constructQuery);
+//				}else {
+//					ontology.performConstructRule(constructQuery);
+//				}
+				
 			}
 		}
 		if (ontology.isLocalOntology()){
