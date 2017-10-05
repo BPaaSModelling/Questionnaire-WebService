@@ -19,7 +19,9 @@
 .
 bdata:Dropbox
   rdf:type bpaas:CloudService ;
+  bpaas:cloudServiceHasAPQC <http://ikm-group.ch/archimeo/apqc#9_2_2_2_Generate_customer_billing_data_10795> ;
   bpaas:cloudServiceHasAPQC <http://ikm-group.ch/archimeo/apqc#9_2_2_3_Transmit_billing_data_to_customers_10796> ;
+  bpaas:cloudServiceHasAPQC <http://ikm-group.ch/archimeo/apqc#9_2_2_Invoice_customer_10743> ;
   bpaas:cloudServiceHasAction fbpdo:Send ;
   bpaas:cloudServiceHasAvailabilityInPercent "100"^^xsd:decimal ;
   bpaas:cloudServiceHasDocumentManagementSystem bpaas:Storage_Service ;

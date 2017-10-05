@@ -5,6 +5,13 @@
 #http://ikm-group.ch/archiMEO/questiondata#What_is_you_favorite_restore_time_level
 #Emanuele to fill
 
+#http://ikm-group.ch/archiMEO/questiondata#How_would_you_like_to_store_your_documents
+[CONSTRUCT {
+	questiondata:tempCloudService bpaas:cloudServiceHasDocumentManagementSystem ?answer .
+} WHERE {
+	questiondata:How_would_you_like_to_store_your_documents questionnaire:questionIsAnsweredByAnswer ?answer .
+}]
+
 #http://ikm-group.ch/archiMEO/questiondata#What_is_your_favorite_backup_frequency_period
 [CONSTRUCT {
 	questiondata:tempCloudService bpaas:cloudServiceHasBackupFrequency ?answer .
