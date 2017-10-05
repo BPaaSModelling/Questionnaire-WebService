@@ -57,6 +57,38 @@ bdata:Gmail
   bpaas:cloudServiceHasTargetMarket bpaas:SmallTeams ;
   rdfs:label "Gmail - e-mail system" ;
 .
+bdata:InvoiceNinja
+  rdf:type bpaas:CloudService ;
+  bpaas:cloudServiceHasAPQC <http://ikm-group.ch/archimeo/apqc#9_2_2_2_Generate_customer_billing_data_10795> ;
+  bpaas:cloudServiceHasAPQC <http://ikm-group.ch/archimeo/apqc#9_2_2_3_Transmit_billing_data_to_customers_10796> ;
+  bpaas:cloudServiceHasAccessLogAvailabilityInMonths 2 ;
+  bpaas:cloudServiceHasAccessLogRetentionPeriodInMonths 2 ;
+  bpaas:cloudServiceHasAccessLogRetentionPolicies bpaas:Overwrite_events_as_needed ;
+  bpaas:cloudServiceHasAction fbpdo:Send ;
+  bpaas:cloudServiceHasAuditLogAvailabilityInMonth 2 ;
+  bpaas:cloudServiceHasAuditLogRetentionPeriodInMonths 2 ;
+  bpaas:cloudServiceHasAuditLogRetentionPolicies bpaas:Overwrite_events_as_needed ;
+  bpaas:cloudServiceHasAvailabilityInPercent 99.999 ;
+  bpaas:cloudServiceHasBackupFrequency bpaas:daily ;
+  bpaas:cloudServiceHasBackupRestoreInGBPerHour 50 ;
+  bpaas:cloudServiceHasBackupRetentionTime bpaas:up_to_7_days ;
+  bpaas:cloudServiceHasDataStorageInGB 5 ;
+  bpaas:cloudServiceHasDescription "https://www.invoiceninja.com/" ;
+  bpaas:cloudServiceHasDocumentManagementSystem bpaas:File_System ;
+  bpaas:cloudServiceHasEncryptionType bpaas:Sha256 ;
+  bpaas:cloudServiceHasExecutionCapacity 20 ;
+  bpaas:cloudServiceHasObject fbpdo:Invoice ;
+  bpaas:cloudServiceHasPaymentPlan bpaas:FreeOfCharge ;
+  bpaas:cloudServiceHasPaymentPlan bpaas:MonthlyFee ;
+  bpaas:cloudServiceHasPaymentPlan bpaas:PrepaidAnnualPlan ;
+  bpaas:cloudServiceHasProcessedDataLocation bpaas:Israel ;
+  bpaas:cloudServiceHasResponseTime_in_ms 5 ;
+  bpaas:cloudServiceHasServiceSupport bpaas:Twenty4Seven ;
+  bpaas:cloudServiceHasServiceSupportResponsiveness bpaas:at_most_1_working_day ;
+  bpaas:cloudServiceHasSimultaneousUsers 500 ;
+  bpaas:cloudServiceHasTargetMarket bpaas:Businesses ;
+  rdfs:label "InvoiceNinja" ;
+.
 bdata:MailJet
   rdf:type bpaas:CloudService ;
   bpaas:cloudServiceHasAPQC <http://ikm-group.ch/archimeo/apqc#9_2_2_3_Transmit_billing_data_to_customers_10796> ;
@@ -108,38 +140,6 @@ bdata:Mathema_Document_Generator
   bpaas:cloudServiceHasTargetMarket bpaas:SchoolsAndUniversities ;
   bpaas:cloudServiceHasTargetMarket bpaas:SmallTeams ;
   rdfs:label "Mathema Document Generator" ;
-.
-bdata:Ninja_Invoicing_System
-  rdf:type bpaas:CloudService ;
-  bpaas:cloudServiceHasAPQC <http://ikm-group.ch/archimeo/apqc#9_2_2_2_Generate_customer_billing_data_10795> ;
-  bpaas:cloudServiceHasAPQC <http://ikm-group.ch/archimeo/apqc#9_2_2_3_Transmit_billing_data_to_customers_10796> ;
-  bpaas:cloudServiceHasAccessLogAvailabilityInMonths 2 ;
-  bpaas:cloudServiceHasAccessLogRetentionPeriodInMonths 2 ;
-  bpaas:cloudServiceHasAccessLogRetentionPolicies bpaas:Overwrite_events_as_needed ;
-  bpaas:cloudServiceHasAction fbpdo:Send ;
-  bpaas:cloudServiceHasAuditLogAvailabilityInMonth 2 ;
-  bpaas:cloudServiceHasAuditLogRetentionPeriodInMonths 2 ;
-  bpaas:cloudServiceHasAuditLogRetentionPolicies bpaas:Overwrite_events_as_needed ;
-  bpaas:cloudServiceHasAvailabilityInPercent 99.999 ;
-  bpaas:cloudServiceHasBackupFrequency bpaas:daily ;
-  bpaas:cloudServiceHasBackupRestoreInGBPerHour 50 ;
-  bpaas:cloudServiceHasBackupRetentionTime bpaas:up_to_7_days ;
-  bpaas:cloudServiceHasDataStorageInGB 5 ;
-  bpaas:cloudServiceHasDescription "https://www.invoiceninja.com/" ;
-  bpaas:cloudServiceHasDocumentManagementSystem bpaas:File_System ;
-  bpaas:cloudServiceHasEncryptionType bpaas:Sha256 ;
-  bpaas:cloudServiceHasExecutionCapacity 20 ;
-  bpaas:cloudServiceHasObject fbpdo:Invoice ;
-  bpaas:cloudServiceHasPaymentPlan bpaas:FreeOfCharge ;
-  bpaas:cloudServiceHasPaymentPlan bpaas:MonthlyFee ;
-  bpaas:cloudServiceHasPaymentPlan bpaas:PrepaidAnnualPlan ;
-  bpaas:cloudServiceHasProcessedDataLocation bpaas:Israel ;
-  bpaas:cloudServiceHasResponseTime_in_ms 5 ;
-  bpaas:cloudServiceHasServiceSupport bpaas:Twenty4Seven ;
-  bpaas:cloudServiceHasServiceSupportResponsiveness bpaas:at_most_1_working_day ;
-  bpaas:cloudServiceHasSimultaneousUsers 500 ;
-  bpaas:cloudServiceHasTargetMarket bpaas:Businesses ;
-  rdfs:label "Ninja Invoicing System" ;
 .
 bdata:Ninja_email
   rdf:type bpaas:CloudService ;
