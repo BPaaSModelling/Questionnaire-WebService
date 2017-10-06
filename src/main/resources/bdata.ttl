@@ -24,6 +24,7 @@ bdata:Drive
   bpaas:cloudServiceHasAPQC <http://ikm-group.ch/archimeo/apqc#9_2_2_3_Transmit_billing_data_to_customers_10796> ;
   bpaas:cloudServiceHasAPQC <http://ikm-group.ch/archimeo/apqc#9_2_2_Invoice_customer_10743> ;
   bpaas:cloudServiceHasAction fbpdo:Create ;
+  bpaas:cloudServiceHasAction fbpdo:Manage ;
   bpaas:cloudServiceHasAction fbpdo:Send ;
   bpaas:cloudServiceHasAction fbpdo:Update ;
   bpaas:cloudServiceHasAction fbpdo:Upload ;
@@ -53,6 +54,7 @@ bdata:Dropbox
   bpaas:cloudServiceHasAPQC <http://ikm-group.ch/archimeo/apqc#9_2_2_3_Transmit_billing_data_to_customers_10796> ;
   bpaas:cloudServiceHasAPQC <http://ikm-group.ch/archimeo/apqc#9_2_2_Invoice_customer_10743> ;
   bpaas:cloudServiceHasAction fbpdo:Create ;
+  bpaas:cloudServiceHasAction fbpdo:Manage ;
   bpaas:cloudServiceHasAction fbpdo:Send ;
   bpaas:cloudServiceHasAction fbpdo:Update ;
   bpaas:cloudServiceHasAction fbpdo:Upload ;
@@ -109,6 +111,7 @@ bdata:InvoiceNinja
   bpaas:cloudServiceHasAccessLogAvailabilityInMonths 2 ;
   bpaas:cloudServiceHasAccessLogRetentionPeriodInMonths 2 ;
   bpaas:cloudServiceHasAccessLogRetentionPolicies bpaas:Overwrite_events_as_needed ;
+  bpaas:cloudServiceHasAction fbpdo:Manage ;
   bpaas:cloudServiceHasAction fbpdo:Send ;
   bpaas:cloudServiceHasAuditLogAvailabilityInMonth 2 ;
   bpaas:cloudServiceHasAuditLogRetentionPeriodInMonths 2 ;
@@ -191,6 +194,7 @@ bdata:NextCloud
   bpaas:cloudServiceHasAPQC <http://ikm-group.ch/archimeo/apqc#9_11_7_Document_trade_14095> ;
   bpaas:cloudServiceHasAPQC <http://ikm-group.ch/archimeo/apqc#9_2_2_3_Transmit_billing_data_to_customers_10796> ;
   bpaas:cloudServiceHasAction fbpdo:Create ;
+  bpaas:cloudServiceHasAction fbpdo:Manage ;
   bpaas:cloudServiceHasAction fbpdo:Send ;
   bpaas:cloudServiceHasAction fbpdo:Update ;
   bpaas:cloudServiceHasAction fbpdo:Upload ;
@@ -199,6 +203,8 @@ bdata:NextCloud
   bpaas:cloudServiceHasDocumentManagementSystem bpaas:Storage_Service ;
   bpaas:cloudServiceHasEncryptionType bpaas:Sha256 ;
   bpaas:cloudServiceHasObject fbpdo:ContentMessage ;
+  bpaas:cloudServiceHasObject fbpdo:Document ;
+  bpaas:cloudServiceHasObject fbpdo:Invoice ;
   bpaas:cloudServiceHasProcessedDataLocation bpaas:Germany ;
   bpaas:cloudServiceHasServiceSupport bpaas:Twenty4Seven ;
   bpaas:cloudServiceHasSimultaneousUsers 100 ;
@@ -308,6 +314,8 @@ bdata:YMENS_CRM
   bpaas:cloudServiceHasAccessLogAvailabilityInMonths 6 ;
   bpaas:cloudServiceHasAccessLogRetentionPeriodInMonths 2 ;
   bpaas:cloudServiceHasAccessLogRetentionPolicies bpaas:Overwrite_events_as_needed ;
+  bpaas:cloudServiceHasAction fbpdo:Manage ;
+  bpaas:cloudServiceHasAction fbpdo:Update ;
   bpaas:cloudServiceHasAuditLogAvailabilityInMonth 2 ;
   bpaas:cloudServiceHasAuditLogRetentionPeriodInMonths 6 ;
   bpaas:cloudServiceHasAuditLogRetentionPolicies bpaas:Overwrite_events_as_needed ;
@@ -319,6 +327,8 @@ bdata:YMENS_CRM
   bpaas:cloudServiceHasDocumentManagementSystem bpaas:File_System ;
   bpaas:cloudServiceHasEncryptionType bpaas:Sha256 ;
   bpaas:cloudServiceHasExecutionCapacity "111"^^xsd:decimal ;
+  bpaas:cloudServiceHasObject fbpdo:Document ;
+  bpaas:cloudServiceHasObject fbpdo:Invoice ;
   bpaas:cloudServiceHasPaymentPlan bpaas:PrepaidAnnualPlan ;
   bpaas:cloudServiceHasProcessedDataLocation bpaas:Romania ;
   bpaas:cloudServiceHasResponseTime_in_ms 1 ;
@@ -347,6 +357,8 @@ bdata:Zoho_CRM
   bpaas:cloudServiceHasDescription "https://www.zoho.com/crm/?src=zoho" ;
   bpaas:cloudServiceHasEncryptionType bpaas:Sha256 ;
   bpaas:cloudServiceHasExecutionCapacity 30 ;
+  bpaas:cloudServiceHasObject fbpdo:Document ;
+  bpaas:cloudServiceHasObject fbpdo:Invoice ;
   bpaas:cloudServiceHasPaymentPlan bpaas:MonthlyFee ;
   bpaas:cloudServiceHasPaymentPlan bpaas:PrepaidAnnualPlan ;
   bpaas:cloudServiceHasPaymentPlan bpaas:TryFreeFirst ;

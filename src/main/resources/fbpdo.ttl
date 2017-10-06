@@ -186,6 +186,11 @@ fbpdo:Magazine
   rdfs:label "Magazine" ;
   rdfs:subClassOf fbpdo:Offline ;
 .
+fbpdo:Manage
+  rdf:type owl:Class ;
+  rdfs:label "Manage" ;
+  rdfs:subClassOf fbpdo:Action ;
+.
 fbpdo:Newsletter
   rdf:type owl:Class ;
   rdfs:label "Newsletter" ;
