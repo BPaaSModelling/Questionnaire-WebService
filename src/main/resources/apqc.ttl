@@ -1,4 +1,5 @@
 # baseURI: http://ikm-group.ch/archimeo/apqc
+# prefix: apqc
 
 @prefix : <http://ikm-group.ch/archimeo/apqc#> .
 @prefix apqc: <http://ikm-group.ch/archimeo/apqc#> .

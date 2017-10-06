@@ -17,19 +17,62 @@
   owl:imports <http://ikm-group.ch/archimeo/bpaas> ;
   owl:versionInfo "Created with TopBraid Composer" ;
 .
-bdata:Dropbox
+bdata:Drive
   rdf:type bpaas:CloudService ;
+  bpaas:cloudServiceHasAPQC <http://ikm-group.ch/archimeo/apqc#9_11_7_Document_trade_14095> ;
   bpaas:cloudServiceHasAPQC <http://ikm-group.ch/archimeo/apqc#9_2_2_2_Generate_customer_billing_data_10795> ;
   bpaas:cloudServiceHasAPQC <http://ikm-group.ch/archimeo/apqc#9_2_2_3_Transmit_billing_data_to_customers_10796> ;
   bpaas:cloudServiceHasAPQC <http://ikm-group.ch/archimeo/apqc#9_2_2_Invoice_customer_10743> ;
+  bpaas:cloudServiceHasAction fbpdo:Create ;
   bpaas:cloudServiceHasAction fbpdo:Send ;
+  bpaas:cloudServiceHasAction fbpdo:Update ;
+  bpaas:cloudServiceHasAction fbpdo:Upload ;
   bpaas:cloudServiceHasAvailabilityInPercent "100"^^xsd:decimal ;
+  bpaas:cloudServiceHasBackupFrequency bpaas:daily ;
   bpaas:cloudServiceHasDocumentManagementSystem bpaas:Storage_Service ;
   bpaas:cloudServiceHasEncryptionType bpaas:Sha256 ;
+  bpaas:cloudServiceHasObject fbpdo:Document ;
   bpaas:cloudServiceHasObject fbpdo:Invoice ;
   bpaas:cloudServiceHasProcessedDataLocation bpaas:Asia ;
   bpaas:cloudServiceHasProcessedDataLocation bpaas:Europe ;
   bpaas:cloudServiceHasProcessedDataLocation bpaas:NorthAmerica ;
+  bpaas:cloudServiceHasServiceSupport bpaas:Twenty4Seven ;
+  bpaas:cloudServiceHasSimultaneousUsers 100000 ;
+  bpaas:cloudServiceHasTargetMarket bpaas:Businesses ;
+  bpaas:cloudServiceHasTargetMarket bpaas:GrowingTeams ;
+  bpaas:cloudServiceHasTargetMarket bpaas:Individuals ;
+  bpaas:cloudServiceHasTargetMarket bpaas:NoTarget ;
+  bpaas:cloudServiceHasTargetMarket bpaas:SchoolsAndUniversities ;
+  bpaas:cloudServiceHasTargetMarket bpaas:SmallTeams ;
+  rdfs:label "Google Drive" ;
+.
+bdata:Dropbox
+  rdf:type bpaas:CloudService ;
+  bpaas:cloudServiceHasAPQC <http://ikm-group.ch/archimeo/apqc#9_11_7_Document_trade_14095> ;
+  bpaas:cloudServiceHasAPQC <http://ikm-group.ch/archimeo/apqc#9_2_2_2_Generate_customer_billing_data_10795> ;
+  bpaas:cloudServiceHasAPQC <http://ikm-group.ch/archimeo/apqc#9_2_2_3_Transmit_billing_data_to_customers_10796> ;
+  bpaas:cloudServiceHasAPQC <http://ikm-group.ch/archimeo/apqc#9_2_2_Invoice_customer_10743> ;
+  bpaas:cloudServiceHasAction fbpdo:Create ;
+  bpaas:cloudServiceHasAction fbpdo:Send ;
+  bpaas:cloudServiceHasAction fbpdo:Update ;
+  bpaas:cloudServiceHasAction fbpdo:Upload ;
+  bpaas:cloudServiceHasAvailabilityInPercent "100"^^xsd:decimal ;
+  bpaas:cloudServiceHasBackupFrequency bpaas:daily ;
+  bpaas:cloudServiceHasDocumentManagementSystem bpaas:Storage_Service ;
+  bpaas:cloudServiceHasEncryptionType bpaas:Sha256 ;
+  bpaas:cloudServiceHasObject fbpdo:Document ;
+  bpaas:cloudServiceHasObject fbpdo:Invoice ;
+  bpaas:cloudServiceHasProcessedDataLocation bpaas:Asia ;
+  bpaas:cloudServiceHasProcessedDataLocation bpaas:Europe ;
+  bpaas:cloudServiceHasProcessedDataLocation bpaas:NorthAmerica ;
+  bpaas:cloudServiceHasServiceSupport bpaas:Twenty4Seven ;
+  bpaas:cloudServiceHasSimultaneousUsers 100000 ;
+  bpaas:cloudServiceHasTargetMarket bpaas:Businesses ;
+  bpaas:cloudServiceHasTargetMarket bpaas:GrowingTeams ;
+  bpaas:cloudServiceHasTargetMarket bpaas:Individuals ;
+  bpaas:cloudServiceHasTargetMarket bpaas:NoTarget ;
+  bpaas:cloudServiceHasTargetMarket bpaas:SchoolsAndUniversities ;
+  bpaas:cloudServiceHasTargetMarket bpaas:SmallTeams ;
   rdfs:label "Dropbox" ;
 .
 bdata:Gmail
@@ -142,6 +185,27 @@ bdata:Mathema_Document_Generator
   bpaas:cloudServiceHasTargetMarket bpaas:SchoolsAndUniversities ;
   bpaas:cloudServiceHasTargetMarket bpaas:SmallTeams ;
   rdfs:label "Mathema Document Generator" ;
+.
+bdata:NextCloud
+  rdf:type bpaas:CloudService ;
+  bpaas:cloudServiceHasAPQC <http://ikm-group.ch/archimeo/apqc#9_11_7_Document_trade_14095> ;
+  bpaas:cloudServiceHasAPQC <http://ikm-group.ch/archimeo/apqc#9_2_2_3_Transmit_billing_data_to_customers_10796> ;
+  bpaas:cloudServiceHasAction fbpdo:Create ;
+  bpaas:cloudServiceHasAction fbpdo:Send ;
+  bpaas:cloudServiceHasAction fbpdo:Update ;
+  bpaas:cloudServiceHasAction fbpdo:Upload ;
+  bpaas:cloudServiceHasAvailabilityInPercent 99.999 ;
+  bpaas:cloudServiceHasBackupFrequency bpaas:daily ;
+  bpaas:cloudServiceHasDocumentManagementSystem bpaas:Storage_Service ;
+  bpaas:cloudServiceHasEncryptionType bpaas:Sha256 ;
+  bpaas:cloudServiceHasObject fbpdo:ContentMessage ;
+  bpaas:cloudServiceHasProcessedDataLocation bpaas:Germany ;
+  bpaas:cloudServiceHasServiceSupport bpaas:Twenty4Seven ;
+  bpaas:cloudServiceHasSimultaneousUsers 100 ;
+  bpaas:cloudServiceHasTargetMarket bpaas:Businesses ;
+  bpaas:cloudServiceHasTargetMarket bpaas:Individuals ;
+  bpaas:cloudServiceHasTargetMarket bpaas:NoTarget ;
+  rdfs:label "NextCloud" ;
 .
 bdata:Ninja_email
   rdf:type bpaas:CloudService ;
