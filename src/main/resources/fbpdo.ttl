@@ -103,7 +103,7 @@ fbpdo:Develop
 .
 fbpdo:Document
   rdf:type owl:Class ;
-  rdfs:label "Template" ;
+  rdfs:label "Document" ;
   rdfs:subClassOf fbpdo:ContentMessage ;
 .
 fbpdo:Edit
