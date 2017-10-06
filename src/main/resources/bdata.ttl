@@ -28,17 +28,21 @@ bdata:Drive
   bpaas:cloudServiceHasAction fbpdo:Send ;
   bpaas:cloudServiceHasAction fbpdo:Update ;
   bpaas:cloudServiceHasAction fbpdo:Upload ;
-  bpaas:cloudServiceHasAvailabilityInPercent "100"^^xsd:decimal ;
+  bpaas:cloudServiceHasAvailabilityInPercent 99.999 ;
   bpaas:cloudServiceHasBackupFrequency bpaas:daily ;
   bpaas:cloudServiceHasDocumentManagementSystem bpaas:Storage_Service ;
   bpaas:cloudServiceHasEncryptionType bpaas:Sha256 ;
   bpaas:cloudServiceHasObject fbpdo:Document ;
   bpaas:cloudServiceHasObject fbpdo:Invoice ;
-  bpaas:cloudServiceHasProcessedDataLocation bpaas:Asia ;
+  bpaas:cloudServiceHasPaymentPlan bpaas:CustomizablePlan ;
+  bpaas:cloudServiceHasPaymentPlan bpaas:FreeofCharge ;
+  bpaas:cloudServiceHasPaymentPlan bpaas:MonthlyFee ;
+  bpaas:cloudServiceHasPaymentPlan bpaas:NoPlan ;
+  bpaas:cloudServiceHasPaymentPlan bpaas:PrepaidAnnualPlan ;
+  bpaas:cloudServiceHasPaymentPlan bpaas:TryFreeFirst ;
   bpaas:cloudServiceHasProcessedDataLocation bpaas:Europe ;
-  bpaas:cloudServiceHasProcessedDataLocation bpaas:NorthAmerica ;
   bpaas:cloudServiceHasServiceSupport bpaas:Twenty4Seven ;
-  bpaas:cloudServiceHasSimultaneousUsers 100000 ;
+  bpaas:cloudServiceHasSimultaneousUsers 100 ;
   bpaas:cloudServiceHasTargetMarket bpaas:Businesses ;
   bpaas:cloudServiceHasTargetMarket bpaas:GrowingTeams ;
   bpaas:cloudServiceHasTargetMarket bpaas:Individuals ;
@@ -58,17 +62,15 @@ bdata:Dropbox
   bpaas:cloudServiceHasAction fbpdo:Send ;
   bpaas:cloudServiceHasAction fbpdo:Update ;
   bpaas:cloudServiceHasAction fbpdo:Upload ;
-  bpaas:cloudServiceHasAvailabilityInPercent "100"^^xsd:decimal ;
+  bpaas:cloudServiceHasAvailabilityInPercent 99.997 ;
   bpaas:cloudServiceHasBackupFrequency bpaas:daily ;
   bpaas:cloudServiceHasDocumentManagementSystem bpaas:Storage_Service ;
   bpaas:cloudServiceHasEncryptionType bpaas:Sha256 ;
   bpaas:cloudServiceHasObject fbpdo:Document ;
   bpaas:cloudServiceHasObject fbpdo:Invoice ;
-  bpaas:cloudServiceHasProcessedDataLocation bpaas:Asia ;
   bpaas:cloudServiceHasProcessedDataLocation bpaas:Europe ;
-  bpaas:cloudServiceHasProcessedDataLocation bpaas:NorthAmerica ;
   bpaas:cloudServiceHasServiceSupport bpaas:Twenty4Seven ;
-  bpaas:cloudServiceHasSimultaneousUsers 100000 ;
+  bpaas:cloudServiceHasSimultaneousUsers 100 ;
   bpaas:cloudServiceHasTargetMarket bpaas:Businesses ;
   bpaas:cloudServiceHasTargetMarket bpaas:GrowingTeams ;
   bpaas:cloudServiceHasTargetMarket bpaas:Individuals ;
@@ -125,6 +127,7 @@ bdata:InvoiceNinja
   bpaas:cloudServiceHasDocumentManagementSystem bpaas:File_System ;
   bpaas:cloudServiceHasEncryptionType bpaas:Sha256 ;
   bpaas:cloudServiceHasExecutionCapacity 20 ;
+  bpaas:cloudServiceHasObject fbpdo:Document ;
   bpaas:cloudServiceHasObject fbpdo:Invoice ;
   bpaas:cloudServiceHasPaymentPlan bpaas:FreeOfCharge ;
   bpaas:cloudServiceHasPaymentPlan bpaas:MonthlyFee ;
@@ -139,7 +142,9 @@ bdata:InvoiceNinja
 .
 bdata:MailJet
   rdf:type bpaas:CloudService ;
+  bpaas:cloudServiceHasAPQC <http://ikm-group.ch/archimeo/apqc#9_2_2_2_Generate_customer_billing_data_10795> ;
   bpaas:cloudServiceHasAPQC <http://ikm-group.ch/archimeo/apqc#9_2_2_3_Transmit_billing_data_to_customers_10796> ;
+  bpaas:cloudServiceHasAction fbpdo:Manage ;
   bpaas:cloudServiceHasAction fbpdo:Send ;
   bpaas:cloudServiceHasAvailabilityInPercent 99.999 ;
   bpaas:cloudServiceHasBackupFrequency bpaas:daily ;
@@ -148,6 +153,7 @@ bdata:MailJet
   bpaas:cloudServiceHasDataStorageInGB 1 ;
   bpaas:cloudServiceHasDescription "https://eu.mailjet.com/#" ;
   bpaas:cloudServiceHasEncryptionType bpaas:Sha256 ;
+  bpaas:cloudServiceHasObject fbpdo:Document ;
   bpaas:cloudServiceHasObject fbpdo:Invoice ;
   bpaas:cloudServiceHasPaymentPlan bpaas:MonthlyFee ;
   bpaas:cloudServiceHasProcessedDataLocation bpaas:French ;
