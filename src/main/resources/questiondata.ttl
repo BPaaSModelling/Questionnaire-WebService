@@ -453,6 +453,15 @@ questiondata:Should_the_process_be_executed_on_a_daily_weekly_monthly_or_yearly_
   questionnaire:questionHasAnswers questiondata:ProcessExecutionOnAYearlyBasis ;
   rdfs:label "Should the process be executed on a daily, weekly, monthly or yearly basis?" ;
 .
+questiondata:Storage_type
+  rdf:type questionnaire:CloudServiceElement ;
+  rdf:type questionnaire:SingleSelection ;
+  questionnaire:cloudServiceElementHasCloudServiceDomain questiondata:Security ;
+  questionnaire:questionHasAnnotationRelation bpaas:cloudServiceHasDocumentManagementSystem ;
+  questionnaire:questionHasAnswers bpaas:File_System ;
+  questionnaire:questionHasAnswers bpaas:Storage_Service ;
+  rdfs:label "Storage type" ;
+.
 questiondata:SupportResponsivenessAtMost1WorkingDay
   rdf:type questionnaire:Answer ;
   rdfs:label "Support responsiveness at most 1 working day" ;
