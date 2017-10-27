@@ -4,6 +4,7 @@ public enum ONTOLOGY {
 	
 	APQC			("apqc",		"TTL",		"apqc.ttl"),
 	BPAAS			("bpaas",		"TTL",		"bpaas.ttl"),
+	BDATA			("bdata",		"TTL",		"bdata.ttl"),
 	FBPDO			("fbpdo",		"TTL",		"fbpdo.ttl"),
 	ARCHIMATE		("archi",		"TTL",		"ARCHIMEO/ARCHIMATE/ArchiMate.ttl"),
 	BMM				("bmm",			"TTL", 		"ARCHIMEO/BMM/BMM.ttl"),

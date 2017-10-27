@@ -9,6 +9,7 @@ public enum NAMESPACE {
 	MEDIATYPES(	"media-types", 					"http://www.iana.org/assignments/media-types#"),
 	BPMN(		ONTOLOGY.BPMN.getPrefix(),		"http://ikm-group.ch/archiMEO/BPMN#"),
 	BPAAS(		ONTOLOGY.BPAAS.getPrefix(),		"http://ikm-group.ch/archimeo/bpaas#"),
+	BDATA(		ONTOLOGY.BDATA.getPrefix(),		"http://ikm-group.ch/archiMEO/bdata#"),
 	EO(			ONTOLOGY.EO.getPrefix(), 		"http://ikm-group.ch/archiMEO/eo#"),
 	FBPDO(		ONTOLOGY.FBPDO.getPrefix(),		"http://ikm-group.ch/archimeo/fbpdo#"),
 	TOP(		ONTOLOGY.TOP.getPrefix(),		"http://ikm-group.ch/archiMEO/top#"),
