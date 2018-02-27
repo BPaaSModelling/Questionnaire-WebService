@@ -81,6 +81,11 @@ fbpdo:Create
   rdfs:label "Create" ;
   rdfs:subClassOf fbpdo:Develop ;
 .
+fbpdo:Customer
+  rdf:type owl:Class ;
+  rdfs:label "Customer" ;
+  rdfs:subClassOf fbpdo:Object ;
+.
 fbpdo:Define
   rdf:type owl:Class ;
   rdfs:label "Define" ;
@@ -130,6 +135,11 @@ fbpdo:FunctionalBusinessProcessDescription
   rdf:type owl:Class ;
   rdfs:label "Functional Business Process Description" ;
   rdfs:subClassOf owl:Thing ;
+.
+fbpdo:Generate
+  rdf:type owl:Class ;
+  rdfs:label "Generate" ;
+  rdfs:subClassOf fbpdo:Action ;
 .
 fbpdo:Googe_ads
   rdf:type owl:Class ;

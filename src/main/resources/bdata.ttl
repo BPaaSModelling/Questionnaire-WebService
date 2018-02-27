@@ -113,12 +113,13 @@ bdata:InvoiceNinja
   bpaas:cloudServiceHasAccessLogAvailabilityInMonths 2 ;
   bpaas:cloudServiceHasAccessLogRetentionPeriodInMonths 2 ;
   bpaas:cloudServiceHasAccessLogRetentionPolicies bpaas:Overwrite_events_as_needed ;
+  bpaas:cloudServiceHasAction fbpdo:Generate ;
   bpaas:cloudServiceHasAction fbpdo:Manage ;
   bpaas:cloudServiceHasAction fbpdo:Send ;
   bpaas:cloudServiceHasAuditLogAvailabilityInMonth 2 ;
   bpaas:cloudServiceHasAuditLogRetentionPeriodInMonths 2 ;
   bpaas:cloudServiceHasAuditLogRetentionPolicies bpaas:Overwrite_events_as_needed ;
-  bpaas:cloudServiceHasAvailabilityInPercent 99.999 ;
+  bpaas:cloudServiceHasAvailabilityInPercent 99.99 ;
   bpaas:cloudServiceHasBackupFrequency bpaas:daily ;
   bpaas:cloudServiceHasBackupRestoreInGBPerHour 50 ;
   bpaas:cloudServiceHasBackupRetentionTime bpaas:up_to_7_days ;
@@ -206,7 +207,7 @@ bdata:NextCloud
   bpaas:cloudServiceHasAction fbpdo:Upload ;
   bpaas:cloudServiceHasAvailabilityInPercent 99.999 ;
   bpaas:cloudServiceHasBackupFrequency bpaas:daily ;
-  bpaas:cloudServiceHasDocumentManagementSystem bpaas:Storage_Service ;
+  bpaas:cloudServiceHasDocumentManagementSystem bpaas:File_System ;
   bpaas:cloudServiceHasEncryptionType bpaas:Sha256 ;
   bpaas:cloudServiceHasObject fbpdo:ContentMessage ;
   bpaas:cloudServiceHasObject fbpdo:Document ;
@@ -255,6 +256,7 @@ bdata:Open_Source_Billing
   bpaas:cloudServiceHasAccessLogAvailabilityInMonths 1 ;
   bpaas:cloudServiceHasAccessLogRetentionPeriodInMonths 1 ;
   bpaas:cloudServiceHasAccessLogRetentionPolicies bpaas:Archive_the_log_when_full ;
+  bpaas:cloudServiceHasAction fbpdo:Generate ;
   bpaas:cloudServiceHasAuditLogAvailabilityInMonth 1 ;
   bpaas:cloudServiceHasAuditLogRetentionPeriodInMonths 1 ;
   bpaas:cloudServiceHasAuditLogRetentionPolicies bpaas:Archive_the_log_when_full ;
@@ -266,6 +268,7 @@ bdata:Open_Source_Billing
   bpaas:cloudServiceHasDescription "https://www.odoo.com/page/billing?utm_source=adwords&utm_medium=cpc&utm_campaign=en-adwordscpc-billing&gclid=Cj0KEQiA5bvEBRCM6vypnc7QgMkBEiQAUZftQGIOKS2kFdxrxzcGC2Cx-D8t-fkHs2KPYHGVNPe6sGIaAjrm8P8HAQ" ;
   bpaas:cloudServiceHasEncryptionType bpaas:Sha256 ;
   bpaas:cloudServiceHasExecutionCapacity 20 ;
+  bpaas:cloudServiceHasObject fbpdo:Invoice ;
   bpaas:cloudServiceHasPaymentPlan bpaas:MonthlyFee ;
   bpaas:cloudServiceHasPaymentPlan bpaas:TryFreeFirst ;
   bpaas:cloudServiceHasProcessedDataLocation bpaas:USA ;
@@ -273,7 +276,7 @@ bdata:Open_Source_Billing
   bpaas:cloudServiceHasServiceSupport bpaas:Mon-Fri ;
   bpaas:cloudServiceHasServiceSupportResponsiveness bpaas:at_most_4_hours ;
   bpaas:cloudServiceHasSimultaneousUsers 200 ;
-  bpaas:cloudServiceHasStoredDataLocation bpaas:USA ;
+  bpaas:cloudServiceHasStoredDataLocation bpaas:Europe ;
   bpaas:cloudServiceHasTargetMarket bpaas:Businesses ;
   bpaas:cloudServiceHasTargetMarket bpaas:Individuals ;
   bpaas:cloudServiceHasTargetMarket bpaas:SchoolsAndUniversities ;
@@ -333,14 +336,13 @@ bdata:YMENS_CRM
   bpaas:cloudServiceHasDocumentManagementSystem bpaas:File_System ;
   bpaas:cloudServiceHasEncryptionType bpaas:Sha256 ;
   bpaas:cloudServiceHasExecutionCapacity "111"^^xsd:decimal ;
-  bpaas:cloudServiceHasObject fbpdo:Document ;
-  bpaas:cloudServiceHasObject fbpdo:Invoice ;
+  bpaas:cloudServiceHasObject fbpdo:Customer ;
   bpaas:cloudServiceHasPaymentPlan bpaas:PrepaidAnnualPlan ;
   bpaas:cloudServiceHasProcessedDataLocation bpaas:Romania ;
   bpaas:cloudServiceHasResponseTime_in_ms 1 ;
   bpaas:cloudServiceHasServiceSupport bpaas:Twenty4Seven ;
   bpaas:cloudServiceHasServiceSupportResponsiveness bpaas:at_most_2_hours ;
-  bpaas:cloudServiceHasSimultaneousUsers 1000 ;
+  bpaas:cloudServiceHasSimultaneousUsers 100 ;
   bpaas:cloudServiceHasStoredDataLocation bpaas:Romania ;
   bpaas:cloudServiceHasTargetMarket bpaas:Businesses ;
   bpaas:cloudServiceHasTargetMarket bpaas:SchoolsAndUniversities ;
@@ -352,6 +354,7 @@ bdata:Zoho_CRM
   bpaas:cloudServiceHasAccessLogAvailabilityInMonths 1 ;
   bpaas:cloudServiceHasAccessLogRetentionPeriodInMonths 2 ;
   bpaas:cloudServiceHasAccessLogRetentionPolicies bpaas:Overwrite_events_as_needed ;
+  bpaas:cloudServiceHasAction fbpdo:Manage ;
   bpaas:cloudServiceHasAuditLogAvailabilityInMonth 1 ;
   bpaas:cloudServiceHasAuditLogRetentionPeriodInMonths 2 ;
   bpaas:cloudServiceHasAuditLogRetentionPolicies bpaas:Overwrite_events_as_needed ;
@@ -363,12 +366,11 @@ bdata:Zoho_CRM
   bpaas:cloudServiceHasDescription "https://www.zoho.com/crm/?src=zoho" ;
   bpaas:cloudServiceHasEncryptionType bpaas:Sha256 ;
   bpaas:cloudServiceHasExecutionCapacity 30 ;
-  bpaas:cloudServiceHasObject fbpdo:Document ;
-  bpaas:cloudServiceHasObject fbpdo:Invoice ;
+  bpaas:cloudServiceHasObject fbpdo:Customer ;
   bpaas:cloudServiceHasPaymentPlan bpaas:MonthlyFee ;
   bpaas:cloudServiceHasPaymentPlan bpaas:PrepaidAnnualPlan ;
   bpaas:cloudServiceHasPaymentPlan bpaas:TryFreeFirst ;
-  bpaas:cloudServiceHasProcessedDataLocation bpaas:USA ;
+  bpaas:cloudServiceHasProcessedDataLocation bpaas:Europe ;
   bpaas:cloudServiceHasResponseTime_in_ms 5 ;
   bpaas:cloudServiceHasServiceSupport bpaas:Mon-Fri ;
   bpaas:cloudServiceHasServiceSupportResponsiveness bpaas:at_most_2_hours ;
